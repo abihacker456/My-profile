@@ -1,153 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abinet Endale - Full Stack Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abinet Endale - Full Stack Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-5px); }
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e5e7eb;
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 20px;
+    }
+    .timeline-item-left { left: 0; text-align: right; }
+    .timeline-item-right { left: 50%; }
+    .timeline-dot {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 16px;
+      background: #3b82f6;
+      border-radius: 50%;
+    }
+  </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="font-bold text-xl text-gray-900">Abinet Endale</div>
-                <div class="space-x-6">
-                    <a href="#home" class="text-gray-700 hover:text-blue-600">Home</a>
-                    <a href="#projects" class="text-gray-700 hover:text-blue-600">Projects</a>
-                    <a href="#certifications" class="text-gray-700 hover:text-blue-600">Certifications</a>
-                    <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
-                </div>
-            </div>
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="font-bold text-xl text-gray-900">Abinet Endale</div>
+      <div class="space-x-6">
+        <a href="#home" class="text-gray-700 hover:text-blue-600">Home</a>
+        <a href="#projects" class="text-gray-700 hover:text-blue-600">Projects</a>
+        <a href="#certifications" class="text-gray-700 hover:text-blue-600">Certifications</a>
+        <a href="#journey" class="text-gray-700 hover:text-blue-600">Journey</a>
+        <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="gradient-bg text-white py-20 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-5xl font-bold mb-6">Abinet Endale</h1>
+      <p class="text-2xl mb-8">Full Stack Developer & IT Student</p>
+      <p class="text-xl mb-10">Building innovative web solutions from Ethiopia</p>
+      <a href="#projects" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold text-lg">
+        View My Projects
+      </a>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-4">My Projects</h2>
+      <p class="text-xl text-center text-gray-600 mb-12">Real applications built with modern technologies</p>
+      
+      <!-- IqubLedger Project -->
+      <div class="bg-gray-50 rounded-2xl p-8 mb-8 border border-gray-200">
+        <h3 class="text-3xl font-bold mb-4">IqubLedger - Financial Platform</h3>
+        <p class="text-lg text-gray-600 mb-6">
+          Full-stack financial management platform for Ethiopian Iqub communities built with Python Flask.
+        </p>
+        <div class="flex gap-4 mb-6">
+          <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Python Flask</span>
+          <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full">SQLite</span>
+          <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Tailwind CSS</span>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="gradient-bg text-white py-20 text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <h1 class="text-5xl font-bold mb-6">Abinet Endale</h1>
-            <p class="text-2xl mb-8">Full Stack Developer & IT Student</p>
-            <p class="text-xl mb-10">Building innovative web solutions from Ethiopia</p>
-            <a href="#projects" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold text-lg">
-                View My Projects
-            </a>
+        <div class="flex gap-4">
+          <a href="https://fintech-app-1-2894.onrender.com" target="_blank" 
+             class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold">
+            Live Demo
+          </a>
+          <a href="https://github.com/abihacker456/fintech-app" target="_blank" 
+             class="border border-gray-300 text-gray-700 px-6 py-2 rounded-lg font-semibold">
+            Source Code
+          </a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-4">My Projects</h2>
-            <p class="text-xl text-center text-gray-600 mb-12">Real applications built with modern technologies</p>
-            
-            <!-- IqubLedger Project -->
-            <div class="bg-gray-50 rounded-2xl p-8 mb-8 border border-gray-200">
-                <h3 class="text-3xl font-bold mb-4">IqubLedger - Financial Platform</h3>
-                <p class="text-lg text-gray-600 mb-6">
-                    Full-stack financial management platform for Ethiopian Iqub communities built with Python Flask.
-                </p>
-                <div class="flex gap-4 mb-6">
-                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Python Flask</span>
-                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full">SQLite</span>
-                    <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Tailwind CSS</span>
-                </div>
-                <div class="flex gap-4">
-                    <a href="https://fintech-app-1-2894.onrender.com" target="_blank" 
-                       class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold">
-                        Live Demo
-                    </a>
-                    <a href="https://github.com/abihacker456/fintech-app" target="_blank" 
-                       class="border border-gray-300 text-gray-700 px-6 py-2 rounded-lg font-semibold">
-                        Source Code
-                    </a>
-                </div>
-            </div>
+  <!-- Certifications Section -->
+  <section id="certifications" class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-4">My Certifications</h2>
+      <p class="text-xl text-center text-gray-600 mb-12">
+        Verified Udacity Nanodegrees & Simplilearn Credentials
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Udacity Certificates -->
+        <div class="bg-white p-6 rounded-xl border border-gray-200">
+          <h3 class="text-xl font-bold mb-2">Data Analysis Fundamentals</h3>
+          <p class="text-gray-600 mb-4">Udacity Nanodegree Program</p>
+          <a href="assets/data-analysis.pdf" class="text-blue-600 font-semibold">View Certificate</a>
         </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="py-20 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-4">My Certifications</h2>
-            <p class="text-xl text-center text-gray-600 mb-12">
-                Verified Udacity Nanodegrees & Simplilearn Credentials
-            </p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Cert 1 -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200">
-                    <h3 class="text-xl font-bold mb-2">Data Analysis Fundamentals</h3>
-                    <p class="text-gray-600 mb-4">Udacity Nanodegree Program</p>
-                    <a href="data-analysis.pdf" class="text-blue-600 font-semibold">View Certificate</a>
-                </div>
-                
-                <!-- Cert 2 -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200">
-                    <h3 class="text-xl font-bold mb-2">AI Fundamentals</h3>
-                    <p class="text-gray-600 mb-4">Udacity Nanodegree Program</p>
-                    <a href="ai-fundamentals.pdf" class="text-blue-600 font-semibold">View Certificate</a>
-                </div>
-                
-                <!-- Cert 3 -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200">
-                    <h3 class="text-xl font-bold mb-2">Android Development</h3>
-                    <p class="text-gray-600 mb-4">Udacity Nanodegree Program</p>
-                    <a href="android.pdf" class="text-blue-600 font-semibold">View Certificate</a>
-                </div>
-                
-                <!-- Cert 4 -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200">
-                    <h3 class="text-xl font-bold mb-2">Programming Fundamentals</h3>
-                    <p class="text-gray-600 mb-4">Udacity Nanodegree Program</p>
-                    <a href="programming.pdf" class="text-blue-600 font-semibold">View Certificate</a>
-                </div>
-
-                <!-- Cert 5 (Simplilearn Ethical Hacking) -->
-                <div class="bg-white p-6 rounded-xl border border-gray-200">
-                    <h3 class="text-xl font-bold mb-2">Ethical Hacking 101: Beginners Guide</h3>
-                    <p class="text-gray-600 mb-4">Simplilearn SkillUp Program</p>
-                    <p class="text-gray-500 mb-2">Issued: Dec 13, 2025</p>
-                    <a href="certificate-for-hacking.pdf" target="_blank" 
-                       class="text-blue-600 font-semibold">View Certificate</a>
-                </div>
-            </div>
-
-            <!-- Ethical Hacking Journey Comment -->
-            <div class="mt-12 bg-white p-8 rounded-xl border border-gray-200">
-                <h3 class="text-2xl font-bold mb-4">My Ethical Hacking Journey</h3>
-                <p class="text-lg text-gray-600">
-                    Earning my Simplilearn Ethical Hacking 101 certificate marked the beginning of my practical 
-                    cybersecurity journey. I’ve moved from foundational concepts into hands-on labs, exploring 
-                    platforms like OverTheWire, PortSwigger Web Security Academy, and HackTheBox. My focus is on 
-                    mastering penetration testing, Python scripting for security automation, and contributing to 
-                    Ethiopia’s digital sovereignty by strengthening fintech and national defense systems. This 
-                    journey reflects my commitment to continuous learning and applying ethical hacking skills 
-                    responsibly to protect and innovate.
-                </p>
-            </div>
+        <div class="bg-white p-6 rounded-xl border border-gray-200">
+          <h3 class="text-xl font-bold mb-2">AI Fundamentals</h3>
+          <p class="text-gray-600 mb-4">Udacity Nanodegree Program</p>
+          <a href="assets/ai-fundamentals.pdf" class="text-blue-600 font-semibold">View Certificate</a>
         </div>
-    </section>
+        <div class="bg-white p-6 rounded-xl border border-gray-200">
+          <h3 class="text-xl font-bold mb-2">Android Development</h3>
+          <p class="text-gray-600 mb-4">Udacity Nanodegree Program</p>
+          <a href="assets/android.pdf" class="text-blue-600 font-semibold">View Certificate</a>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-gray-200">
+          <h3 class="text-xl font-bold mb-2">Programming Fundamentals</h3>
+          <p class="text-gray-600 mb-4">Udacity Nanodegree Program</p>
+          <a href="assets/programming.pdf" class="text-blue-600 font-semibold">View Certificate</a>
+        </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-4">Let's Work Together</h2>
-            <p class="text-xl text-gray-600 mb-8">Available for freelance projects and internships</p>
-            
-            <div class="bg-gray-50 rounded-2xl p-8 max-w-2xl mx-auto">
-                <div class="space-y-4 text-left">
-                    <div class="flex items-center">
-                        <i class="fas fa-phone text-blue-600 mr-4"></i>
-                        <div>
-                            <p class="font-semibold">Phone/Telegram</p>
-                            <p class="text-gray-600">+251-948-713-566</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fab fa-telegram text-green-
+        <!-- Simplilearn Ethical Hacking Certificate -->
+        <div class="bg-white p-6 rounded-xl border border-gray-200">
+          <h3 class="text-xl font-bold mb-2">Ethical Hacking 101: Beginners Guide</h3>
+          <p class="text-gray-600 mb-4">Simplilearn SkillUp Program</p>
+          <p class="text-gray-500 mb-2">Issued: Dec 13, 2025</p>
+          <a href="assets/certificate-for-hacking.pdf" target="_blank" 
+             class="text-blue-600 font-semibold">View Certificate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ethical Hacking Journey Section -->
+  <section id="journey" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-4">My Ethical Hacking Journey</h2>
+      <p class="text-xl text-center text-gray-600 mb-12">
+        A timeline of my growth in cybersecurity and ethical hacking
+      </p>
+      
+      <div class="timeline">
+        <!-- Timeline Item 1 -->
+        <div class="timeline-item timeline-item-left">
+          <div class="timeline-dot"></div>
+          <h3 class="text-xl font-bold">2025 - Simplilearn Ethical Hacking 101</h3>
+          <p class="text-gray-600">Earned my first ethical hacking certificate, covering fundamentals and penetration testing basics.</p>
+        </div>
+        <!-- Timeline Item 2 -->
+        <div class="timeline-item timeline-item-right">
