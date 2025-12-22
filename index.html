@@ -38,6 +38,13 @@
       background: #3b82f6;
       border-radius: 50%;
     }
+    .social-icon {
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .social-icon:hover {
+      transform: scale(1.2);
+      color: #1d4ed8;
+    }
   </style>
 </head>
 <body class="bg-gray-50">
@@ -72,33 +79,33 @@
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-4xl font-bold text-center mb-4">My Projects</h2>
       <p class="text-xl text-center text-gray-600 mb-12">Real applications built with modern technologies</p>
-
+      
       <!-- Video Projector 2 - Android App -->
-<div class="bg-gray-50 rounded-2xl p-8 mb-8 border border-gray-200">
-  <h3 class="text-3xl font-bold mb-4">Video Projector 2 - Android App</h3>
-  <p class="text-lg text-gray-600 mb-6">
-    A native Android app that transforms any surface into a display. Features video/image projection with gesture controls, 
-    file browsing, and camera integration. This project involved solving complex Java/Gradle compatibility issues.
-  </p>
-  <div class="flex gap-4 mb-6">
-    <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Kotlin</span>
-    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full">Android SDK</span>
-    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Gradle</span>
-    <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">Java</span>
-  </div>
-  <div class="flex gap-4">
-    <a href="https://drive.google.com/uc?export=download&id=1BUh69rbeXmwVIfDKS4P-Mkt3T60xaKtE" 
-       target="_blank" 
-       class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold">
-      Download APK
-    </a>
-    <a href="#contact" 
-       class="border border-gray-300 text-gray-700 px-6 py-2 rounded-lg font-semibold">
-      View Details
-    </a>
-  </div>
-</div>
-
+      <div class="bg-gray-50 rounded-2xl p-8 mb-8 border border-gray-200">
+        <h3 class="text-3xl font-bold mb-4">Video Projector 2 - Android App</h3>
+        <p class="text-lg text-gray-600 mb-6">
+          A native Android app that transforms any surface into a display. Features video/image projection with gesture controls, 
+          file browsing, and camera integration. This project involved solving complex Java/Gradle compatibility issues.
+        </p>
+        <div class="flex gap-4 mb-6">
+          <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Kotlin</span>
+          <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full">Android SDK</span>
+          <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Gradle</span>
+          <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">Java</span>
+        </div>
+        <div class="flex gap-4">
+          <a href="https://drive.google.com/uc?export=download&id=1BUh69rbeXmwVIfDKS4P-Mkt3T60xaKtE" 
+             target="_blank" 
+             class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold">
+            Download APK
+          </a>
+          <button onclick="openModal()" 
+             class="border border-gray-300 text-gray-700 px-6 py-2 rounded-lg font-semibold">
+            View Details
+          </button>
+        </div>
+      </div>
+      
       <!-- IqubLedger Project -->
       <div class="bg-gray-50 rounded-2xl p-8 mb-8 border border-gray-200">
         <h3 class="text-3xl font-bold mb-4">IqubLedger - Financial Platform</h3>
@@ -205,7 +212,7 @@
         <div class="timeline-item timeline-item-left">
           <div class="timeline-dot"></div>
           <h3 class="text-xl font-bold">Future Goal</h3>
-          <p class="text-gray-600">Advance into malware analysis and penetration testing to strengthen Ethiopia’s digital sovereignty.</p>
+          <p class="text-gray-600">Advance into malware analysis and penetration testing to strengthen Ethiopia's digital sovereignty.</p>
         </div>
       </div>
     </div>
@@ -262,18 +269,46 @@
   </div>
 </section>
 
+<!-- Modal for Video Projector Details -->
+<div id="videoProjectorModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+  <div class="modal-content" style="background: white; padding: 30px; border-radius: 12px; max-width: 600px; max-height: 80vh; overflow-y: auto;">
+    <h3 class="text-2xl font-bold mb-4">Video Projector 2 - Technical Details</h3>
+    <p class="mb-4"><strong>Challenge:</strong> The app initially failed to build due to Java 24 and Gradle 8.13 incompatibility. The error message "Launcher JVM: 24.0.1" indicated a version mismatch that prevented compilation.</p>
+    <p class="mb-4"><strong>Solution:</strong> Successfully upgraded the project to Gradle 8.14.1, configured the JDK toolchain for Java 17 compatibility, and resolved dependency synchronization issues. This required manual cache cleaning and Gradle wrapper updates.</p>
+    <p class="mb-4"><strong>Technologies:</strong> Kotlin, Android SDK, Gradle, ViewBinding, MediaPlayer API, CameraX, File System API.</p>
+    <p class="mb-6"><strong>Key Features:</strong> 
+      <ul class="list-disc pl-5 mb-4">
+        <li>Video playback for MP4, AVI, MKV formats with gesture controls</li>
+        <li>Image projection with pinch-to-zoom and rotation</li>
+        <li>Integrated file browser for local storage access</li>
+        <li>Camera projection mode for real-time display</li>
+        <li>Professional About screen with developer information</li>
+      </ul>
+    </p>
+    <button onclick="closeModal()" class="bg-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400 transition">Close</button>
+  </div>
+</div>
+
 <!-- Footer -->
 <footer class="bg-gray-900 text-white py-12 text-center">
   <p>&copy; 2025 Abinet Endale. All rights reserved.</p>
 </footer>
 
-<!-- Hover Animation CSS -->
-<style>
-  .social-icon {
-    transition: transform 0.3s ease, color 0.3s ease;
+<script>
+function openModal() {
+  document.getElementById('videoProjectorModal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('videoProjectorModal').style.display = 'none';
+}
+
+// Close modal when clicking outside content
+document.getElementById('videoProjectorModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeModal();
   }
-  .social-icon:hover {
-    transform: scale(1.2);
-    color: #1d4ed8; /* Tailwind blue-700 */
-  }
-</style>
+});
+</script>
+</body>
+</html>
