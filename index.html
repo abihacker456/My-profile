@@ -62,13 +62,25 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Photo -->
   <section id="home" class="gradient-bg text-white py-20 text-center">
     <div class="max-w-4xl mx-auto px-4">
+      <!-- Profile Photo -->
+      <div class="flex justify-center mb-8">
+        <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-xl">
+          <img 
+            src="photo_page-0001.jpg" 
+            alt="Abinet Endale - Full Stack Developer" 
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\"w-full h-full flex items-center justify-center bg-blue-100\"><span class=\"text-4xl font-bold text-blue-600\">AE</span></div>';"
+          >
+        </div>
+      </div>
+      
       <h1 class="text-5xl font-bold mb-6">Abinet Endale</h1>
       <p class="text-2xl mb-8">Full Stack Developer & IT Student</p>
       <p class="text-xl mb-10">Building innovative web solutions from Ethiopia</p>
-      <a href="#projects" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold text-lg">
+      <a href="#projects" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition">
         View My Projects
       </a>
     </div>
@@ -218,13 +230,25 @@
     </div>
   </section>
 
-<!-- Contact Section -->
+<!-- Contact Section with Photo -->
 <section id="contact" class="py-20 bg-white">
   <div class="max-w-4xl mx-auto px-4 text-center">
     <h2 class="text-4xl font-bold mb-4">Let's Work Together</h2>
     <p class="text-xl text-gray-600 mb-8">Available for freelance projects and internships</p>
     
     <div class="bg-gray-50 rounded-2xl p-8 max-w-2xl mx-auto">
+      <!-- Small profile photo in contact -->
+      <div class="flex justify-center mb-6">
+        <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-600 shadow-lg">
+          <img 
+            src="photo_page-0001.jpg" 
+            alt="Abinet Endale" 
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\"w-full h-full flex items-center justify-center bg-blue-100\"><span class=\"text-2xl font-bold text-blue-600\">AE</span></div>';"
+          >
+        </div>
+      </div>
+      
       <!-- Name, Phone, Location -->
       <div class="space-y-6 text-left">
         <div class="flex items-center">
