@@ -235,6 +235,7 @@
         </div>
       </div>
     </div>
+document.getElementById('stat-users').textContent = '1000+'; // Update from 500+ to 1000+
   </section>
 
   <!-- Skills Section -->
@@ -374,6 +375,48 @@
       </div>
     </div>
   </section>
+  <!-- Android Security Research Project -->
+<div class="bg-white rounded-2xl p-8 mb-8 border border-gray-200 card-hover shadow-lg">
+  <div class="flex flex-col md:flex-row items-start">
+    <div class="md:w-2/3">
+      <h3 class="text-3xl font-bold mb-4">Advanced Android Security Analysis System</h3>
+      <p class="text-lg text-gray-600 mb-6">
+        A comprehensive Android application security research project demonstrating advanced malware analysis techniques,
+        C2 communication protocols, and vulnerability assessment methodologies. This project showcases deep understanding
+        of Android security architecture and defensive programming practices.
+      </p>
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="tech-tag bg-red-100 text-red-800 px-3 py-1 rounded-full">Android Security</span>
+        <span class="tech-tag bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Kotlin/Java</span>
+        <span class="tech-tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full">C2 Communication</span>
+        <span class="tech-tag bg-green-100 text-green-800 px-3 py-1 rounded-full">Telegram Bot API</span>
+        <span class="tech-tag bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">Forensic Analysis</span>
+        <span class="tech-tag bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">Vulnerability Assessment</span>
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <button onclick="openSecurityAnalysisModal()" 
+               class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition hover:scale-105">
+          <i class="fas fa-shield-alt mr-2"></i>View Technical Details
+        </button>
+        <span class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold">
+          <i class="fas fa-lock mr-2"></i>Confidential Research
+        </span>
+      </div>
+    </div>
+    <div class="md:w-1/3 mt-6 md:mt-0 md:pl-8">
+      <div class="bg-gradient-to-br from-red-50 to-orange-50 p-6 rounded-xl">
+        <h4 class="font-bold text-lg mb-3">Key Technical Achievements</h4>
+        <ul class="space-y-2">
+          <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Real-time C2 communication via Telegram API</li>
+          <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Advanced permission analysis & management</li>
+          <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Comprehensive data collection methodologies</li>
+          <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Forensic artifact generation & analysis</li>
+          <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Vulnerability assessment reporting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Stats Section -->
   <section id="stats" class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
@@ -711,6 +754,139 @@
       </div>
     </div>
   </div>
+  <!-- Security Analysis Modal -->
+<div id="securityAnalysisModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+    <div class="p-8">
+      <div class="flex justify-between items-center mb-8">
+        <h3 class="text-2xl font-bold">Advanced Android Security Analysis System</h3>
+        <button onclick="closeSecurityAnalysisModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="space-y-6">
+        <!-- Project Overview -->
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl">
+          <h4 class="font-bold text-xl mb-4">🔒 Project Overview</h4>
+          <p class="text-gray-700">
+            This project represents an in-depth analysis of Android security vulnerabilities and defensive programming techniques. 
+            It demonstrates comprehensive understanding of Android's security model, permission system, and potential attack vectors.
+          </p>
+        </div>
+        
+        <!-- Technical Implementation -->
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl">
+          <h4 class="font-bold text-xl mb-4">⚙️ Technical Implementation</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <h5 class="font-semibold mb-2">Core Technologies</h5>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>Kotlin & Java for Android development</li>
+                <li>Telegram Bot API for C2 communication</li>
+                <li>Android Foreground Services</li>
+                <li>Permission Analysis Framework</li>
+                <li>Data Collection & Exfiltration Protocols</li>
+              </ul>
+            </div>
+            <div>
+              <h5 class="font-semibold mb-2">Security Analysis Features</h5>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>Comprehensive permission auditing</li>
+                <li>Real-time data monitoring</li>
+                <li>Vulnerability assessment reporting</li>
+                <li>Forensic artifact generation</li>
+                <li>Defensive programming techniques</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Key Achievements -->
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl">
+          <h4 class="font-bold text-xl mb-4">🏆 Key Achievements</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+            <div class="bg-white p-4 rounded-lg">
+              <div class="text-2xl font-bold text-blue-600 mb-2">15+</div>
+              <p class="text-sm">Security Analysis<br>Techniques</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg">
+              <div class="text-2xl font-bold text-green-600 mb-2">20+</div>
+              <p class="text-sm">Vulnerability<br>Assessments</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg">
+              <div class="text-2xl font-bold text-purple-600 mb-2">100%</div>
+              <p class="text-sm">Technical<br>Implementation</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Skills Demonstrated -->
+        <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-xl">
+          <h4 class="font-bold text-xl mb-4">🔧 Skills Demonstrated</h4>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-white px-3 py-1 rounded-full border border-gray-200">Android Security Architecture</span>
+            <span class="bg-white px-3 py-1 rounded-full border border-gray-200">Reverse Engineering</span>
+            <span class="bg-white px-3 py-1 rounded-full border border-gray-200">Forensic Analysis</span>
+            <span class="bg-white px-3 py-1 rounded-full border border-gray-200">Vulnerability Assessment</span>
+            <span class="bg-white px-3 py-1 rounded-full border border-gray-200">Defensive Programming</span>
+            <span class="bg-white px-3 py-1 rounded-full border border-gray-200">Penetration Testing</span>
+            <span class="bg-white px-3 py-1 rounded-full border border-gray-200">Secure Communication</span>
+            <span class="bg-white px-3 py-1 rounded-full border border-gray-200">Permission Management</span>
+          </div>
+        </div>
+        
+        <!-- Professional Value -->
+        <div class="bg-gradient-to-r from-teal-50 to-cyan-50 p-6 rounded-xl">
+          <h4 class="font-bold text-xl mb-4">💼 Professional Value</h4>
+          <div class="space-y-3">
+            <div class="flex items-start">
+              <i class="fas fa-briefcase text-blue-500 mt-1 mr-3"></i>
+              <div>
+                <p class="font-semibold">Security Research Capabilities</p>
+                <p class="text-gray-600 text-sm">Demonstrates ability to conduct in-depth security analysis and vulnerability assessments</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-code text-green-500 mt-1 mr-3"></i>
+              <div>
+                <p class="font-semibold">Technical Implementation Skills</p>
+                <p class="text-gray-600 text-sm">Shows advanced proficiency in Android development with security focus</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-chart-line text-purple-500 mt-1 mr-3"></i>
+              <div>
+                <p class="font-semibold">Analytical Problem Solving</p>
+                <p class="text-gray-600 text-sm">Proves ability to analyze complex security systems and propose solutions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Note -->
+        <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-blue-500">
+          <p class="text-sm text-gray-600">
+            <i class="fas fa-info-circle text-blue-500 mr-2"></i>
+            This project was developed for security research purposes only. All work was conducted in controlled environments 
+            following ethical security research guidelines. The knowledge gained contributes to improving Android security 
+            and developing better defensive mechanisms.
+          </p>
+        </div>
+      </div>
+      
+      <div class="mt-8 flex justify-end space-x-4">
+        <button onclick="closeSecurityAnalysisModal()" 
+                class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition">
+          Close
+        </button>
+        <span class="bg-green-100 text-green-800 px-6 py-3 rounded-lg font-semibold flex items-center">
+          <i class="fas fa-lock mr-2"></i>Security Research Complete
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- Back to Top Button -->
   <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition hidden z-40">
@@ -719,6 +895,16 @@
 
   <script>
     // Modal functions
+function openSecurityAnalysisModal() {
+  document.getElementById('securityAnalysisModal').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSecurityAnalysisModal() {
+  document.getElementById('securityAnalysisModal').classList.add('hidden');
+  document.body.style.overflow = 'auto';
+}
+
     function openCodeLearnModal() {
       document.getElementById('codeLearnModal').classList.remove('hidden');
       document.body.style.overflow = 'hidden';
@@ -743,6 +929,7 @@
     document.querySelectorAll('.modal').forEach(modal => {
       modal.addEventListener('click', function(e) {
         if (e.target === this) {
+          if (modal.id === 'securityAnalysisModal') closeSecurityAnalysisModal();
           if (modal.id === 'codeLearnModal') closeCodeLearnModal();
           if (modal.id === 'videoProjectorModal') closeVideoProjectorModal();
         }
