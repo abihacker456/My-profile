@@ -6,167 +6,60 @@
   <title>Abinet Endale - Android & Full Stack Developer</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  
   <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
 
   <style>
-    :root {
-      --primary: #3b82f6;
-      --secondary: #8b5cf6;
-      --accent: #10b981;
-    }
-    
+    :root { --primary: #3b82f6; --secondary: #8b5cf6; }
     .gradient-bg { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); }
-    .gradient-text { background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    
-    /* Base Transitions */
     .card-hover { transition: all 0.3s ease; transform-style: preserve-3d; transform: perspective(1000px); }
+    .tech-tag { transition: all 0.3s ease; border: 1px solid transparent; }
+    .tech-tag:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    html { scroll-behavior: smooth; }
     
-    .social-icon {
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-    .social-icon:hover {
-      transform: scale(1.2);
-      color: var(--primary);
-    }
-    
-    .tech-tag { 
-      transition: all 0.3s ease; 
-      border: 1px solid transparent;
-    }
-    .tech-tag:hover { 
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      border-color: rgba(0,0,0,0.1);
-    }
-    
-    /* Smooth scroll */
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    /* Dark mode support */
-    .dark-mode {
-      background-color: #1a202c;
-      color: #e2e8f0;
-    }
-    .dark-mode .bg-white {
-      background-color: #2d3748 !important;
-      color: #e2e8f0;
-    }
-    .dark-mode .bg-gray-50 {
-      background-color: #1a202c !important;
-    }
+    /* Dark Mode */
+    .dark-mode { background-color: #1a202c; color: #e2e8f0; }
+    .dark-mode .bg-white { background-color: #2d3748 !important; color: #e2e8f0; }
+    .dark-mode .bg-gray-50 { background-color: #1a202c !important; }
+    .dark-mode nav { background-color: #2d3748 !important; }
     .dark-mode .text-gray-900 { color: #f7fafc !important; }
     .dark-mode .text-gray-800 { color: #e2e8f0 !important; }
-    .dark-mode .text-gray-700 { color: #cbd5e0 !important; }
     .dark-mode .text-gray-600 { color: #a0aec0 !important; }
-    .dark-mode .border-gray-200 { border-color: #4a5568 !important; }
-    .dark-mode nav { background-color: #2d3748 !important; }
 
-    /* Loading animation */
-    .loading-bar {
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 9999;
-      animation: loading 2s infinite;
-    }
+    /* Cursor & Loading */
+    .loading-bar { height: 4px; background: linear-gradient(90deg, var(--primary), var(--secondary)); position: fixed; top: 0; left: 0; z-index: 9999; animation: loading 2s infinite; }
+    @keyframes loading { 0% { width: 0%; left: 0; } 50% { width: 100%; left: 0; } 100% { width: 0%; left: 100%; } }
     
-    @keyframes loading {
-      0% { width: 0%; left: 0; }
-      50% { width: 100%; left: 0; }
-      100% { width: 0%; left: 100%; }
-    }
-    
-    /* Stats counter */
-    .stat-number {
-      font-size: 3rem;
-      font-weight: bold;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* --- CUSTOM CURSOR STYLES --- */
-    .cursor-dot,
-    .cursor-outline {
-        position: fixed;
-        top: 0;
-        left: 0;
-        transform: translate(-50%, -50%);
-        border-radius: 50%;
-        z-index: 9999;
-        pointer-events: none;
-    }
-    .cursor-dot {
-        width: 8px;
-        height: 8px;
-        background-color: var(--primary);
-    }
-    .cursor-outline {
-        width: 40px;
-        height: 40px;
-        border: 2px solid var(--primary);
-        transition: width 0.2s, height 0.2s, background-color 0.2s;
-    }
-    /* Expand cursor on hover */
+    .cursor-dot, .cursor-outline { position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); border-radius: 50%; z-index: 9999; pointer-events: none; }
+    .cursor-dot { width: 8px; height: 8px; background-color: var(--primary); }
+    .cursor-outline { width: 40px; height: 40px; border: 2px solid var(--primary); transition: width 0.2s, height 0.2s, background-color 0.2s; }
     body:hover .cursor-outline { opacity: 1; }
-    .cursor-hovered {
-        width: 60px !important;
-        height: 60px !important;
-        background-color: rgba(59, 130, 246, 0.1);
-        border-color: transparent !important;
-    }
-    /* Hide default cursor only on large screens */
-    @media (min-width: 768px) {
-        body { cursor: none; }
-        a, button, .card-hover, input, textarea { cursor: none; }
-    }
-    @media (max-width: 767px) {
-        .cursor-dot, .cursor-outline { display: none; }
-    }
+    .cursor-hovered { width: 60px !important; height: 60px !important; background-color: rgba(59, 130, 246, 0.1); border-color: transparent !important; }
+    @media (min-width: 768px) { body, a, button { cursor: none; } }
+    @media (max-width: 767px) { .cursor-dot, .cursor-outline { display: none; } }
   </style>
 </head>
 <body class="bg-gray-50 transition-colors duration-300">
   
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
-
   <div class="loading-bar"></div>
 
   <nav class="bg-white shadow-lg sticky top-0 z-40 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <div class="font-bold text-xl text-gray-900">Abinet Endale</div>
       <div class="space-x-6 hidden md:flex">
-        <a href="#home" class="text-gray-700 hover:text-blue-600 transition">Home</a>
-        <a href="#skills" class="text-gray-700 hover:text-blue-600 transition">Skills</a>
-        <a href="#projects" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
-        <a href="#stats" class="text-gray-700 hover:text-blue-600 transition">Stats</a>
-        <a href="#certifications" class="text-gray-700 hover:text-blue-600 transition">Certifications</a>
-        <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
-        <button id="theme-toggle" class="text-gray-700 hover:text-blue-600">
-          <i class="fas fa-moon"></i>
-        </button>
+        <a href="#home" class="text-gray-700 hover:text-blue-600">Home</a>
+        <a href="#projects" class="text-gray-700 hover:text-blue-600">Projects</a>
+        <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+        <button id="theme-toggle" class="text-gray-700 hover:text-blue-600"><i class="fas fa-moon"></i></button>
       </div>
-      <button id="mobile-menu-button" class="md:hidden text-gray-700">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
+      <button id="mobile-menu-button" class="md:hidden text-gray-700"><i class="fas fa-bars text-xl"></i></button>
     </div>
-    
     <div id="mobile-menu" class="md:hidden hidden bg-white py-4 px-4 shadow-lg">
       <div class="flex flex-col space-y-4">
-        <a href="#home" class="text-gray-700 hover:text-blue-600 transition">Home</a>
-        <a href="#skills" class="text-gray-700 hover:text-blue-600 transition">Skills</a>
-        <a href="#projects" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
-        <a href="#stats" class="text-gray-700 hover:text-blue-600 transition">Stats</a>
-        <a href="#certifications" class="text-gray-700 hover:text-blue-600 transition">Certifications</a>
-        <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
-        <button id="theme-toggle-mobile" class="text-left text-gray-700 hover:text-blue-600">
-          <i class="fas fa-moon mr-2"></i>Toggle Theme
-        </button>
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
@@ -174,59 +67,39 @@
   <section id="home" class="gradient-bg text-white py-20 text-center relative overflow-hidden">
     <div class="max-w-6xl mx-auto px-4" data-aos="fade-up">
       <div class="flex justify-center mb-8">
-        <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
-          <img 
-            src="photo_page-0001.jpg" 
-            alt="Abinet Endale - Android & Full Stack Developer" 
-            class="w-full h-full object-cover"
-            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-blue-100\'><span class=\'text-4xl font-bold text-blue-600\'>AE</span></div>';"
-          >
+        <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+          <img src="photo_page-0001.jpg" alt="Abinet" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-white text-blue-600 text-4xl font-bold\'>AE</div>'">
         </div>
       </div>
-      
       <h1 class="text-5xl md:text-6xl font-bold mb-4">Abinet Endale</h1>
       <p class="text-2xl md:text-3xl mb-4">Android & Full Stack Developer</p>
-      <p class="text-xl mb-10 max-w-2xl mx-auto">IT Student at Madda Walabu University | Building innovative digital solutions from Ethiopia</p>
-      
-      <div class="flex flex-wrap justify-center gap-4 mb-10">
-        <a href="#projects" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition hover:scale-105 shadow-lg">
-          <i class="fas fa-code mr-2"></i>View Projects
-        </a>
-        <a href="#contact" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition hover:scale-105 shadow-lg">
-          <i class="fas fa-envelope mr-2"></i>Contact Me
-        </a>
+      <p class="text-xl mb-10 max-w-2xl mx-auto">IT Student at Madda Walabu University</p>
+      <div class="flex justify-center gap-4">
+        <a href="#projects" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold shadow-lg hover:scale-105 transition">View Projects</a>
+        <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition">Contact Me</a>
       </div>
     </div>
   </section>
 
   <section id="skills" class="py-20 bg-white">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-4" data-aos="fade-up">My Skills</h2>
-      <p class="text-xl text-center text-gray-600 mb-12" data-aos="fade-up">Technologies I work with</p>
-      
+      <h2 class="text-4xl font-bold text-center mb-12 text-gray-900" data-aos="fade-up">My Skills</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div class="bg-gray-50 p-6 rounded-xl text-center card-hover border border-gray-100">
           <i class="fab fa-android text-4xl text-green-500 mb-4"></i>
-          <h3 class="font-bold text-lg mb-2 text-gray-800">Android Development</h3>
-          <p class="text-gray-600">Kotlin, Java, Jetpack Compose</p>
+          <h3 class="font-bold text-gray-800">Android</h3>
         </div>
-        
         <div class="bg-gray-50 p-6 rounded-xl text-center card-hover border border-gray-100">
           <i class="fas fa-code text-4xl text-blue-500 mb-4"></i>
-          <h3 class="font-bold text-lg mb-2 text-gray-800">Frontend</h3>
-          <p class="text-gray-600">HTML, CSS, JavaScript, React</p>
+          <h3 class="font-bold text-gray-800">Web Dev</h3>
         </div>
-        
         <div class="bg-gray-50 p-6 rounded-xl text-center card-hover border border-gray-100">
           <i class="fas fa-server text-4xl text-purple-500 mb-4"></i>
-          <h3 class="font-bold text-lg mb-2 text-gray-800">Backend</h3>
-          <p class="text-gray-600">Python Flask, Node.js, SQLite</p>
+          <h3 class="font-bold text-gray-800">Backend</h3>
         </div>
-        
         <div class="bg-gray-50 p-6 rounded-xl text-center card-hover border border-gray-100">
           <i class="fas fa-shield-alt text-4xl text-red-500 mb-4"></i>
-          <h3 class="font-bold text-lg mb-2 text-gray-800">Cybersecurity</h3>
-          <p class="text-gray-600">Kali Linux, Ethical Hacking</p>
+          <h3 class="font-bold text-gray-800">Security</h3>
         </div>
       </div>
     </div>
@@ -234,496 +107,163 @@
 
   <section id="projects" class="py-20 bg-gray-50">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-4 text-gray-900" data-aos="fade-up">Featured Projects</h2>
-      <p class="text-xl text-center text-gray-600 mb-12" data-aos="fade-up">Professional applications with real-world impact</p>
+      <h2 class="text-4xl font-bold text-center mb-12 text-gray-900" data-aos="fade-up">Featured Projects</h2>
       
       <div class="bg-white rounded-2xl p-8 mb-8 border border-gray-200 card-hover shadow-lg" data-aos="fade-right">
-        <div class="flex flex-col md:flex-row items-start">
-          <div class="md:w-2/3">
-            <h3 class="text-3xl font-bold mb-4 text-gray-800">CodeLearn Pro - Android App</h3>
-            <p class="text-lg text-gray-600 mb-6">
-              A comprehensive programming learning app with 125 lessons across 5 programming languages (Python, C++, Kotlin, Java, JavaScript). 
-              Features real code execution via JDoodle API, bookmark system, progress tracking, and interactive coding exercises.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="tech-tag bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Kotlin</span>
-              <span class="tech-tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Jetpack Compose</span>
-              <span class="tech-tag bg-green-100 text-green-800 px-3 py-1 rounded-full">Room Database</span>
-              <span class="tech-tag bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">JDoodle API</span>
-            </div>
-            <div class="flex flex-wrap gap-4">
-              <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition hover:scale-105 shadow-md">
-                <i class="fas fa-download mr-2"></i>Download APK
-              </a>
-              <button onclick="openCodeLearnModal()" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition hover:scale-105">
-                <i class="fas fa-info-circle mr-2"></i>View Details
-              </button>
-            </div>
-          </div>
-          <div class="md:w-1/3 mt-6 md:mt-0 md:pl-8">
-            <div class="bg-gradient-to-br from-blue-100 to-purple-100 p-6 rounded-xl">
-              <h4 class="font-bold text-lg mb-3 text-gray-800">Key Achievements</h4>
-              <ul class="space-y-2 text-gray-700">
-                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>125 comprehensive lessons</li>
-                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Real code execution</li>
-                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Dark/light theme</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="bg-white rounded-2xl p-8 mb-8 border border-gray-200 card-hover shadow-lg" data-aos="fade-left">
-        <h3 class="text-3xl font-bold mb-4 text-gray-800">Video Projector 2 - Android App</h3>
-        <p class="text-lg text-gray-600 mb-6">
-          A native Android app that transforms any surface into a display. Features video/image projection with gesture controls, 
-          file browsing, and camera integration. Successfully resolved complex Java/Gradle compatibility issues.
-        </p>
+        <h3 class="text-3xl font-bold mb-4 text-gray-800">CodeLearn Pro - Android App</h3>
+        <p class="text-lg text-gray-600 mb-6">Learning app with 125 lessons across 5 languages and real code execution.</p>
         <div class="flex flex-wrap gap-2 mb-6">
           <span class="tech-tag bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Kotlin</span>
-          <span class="tech-tag bg-green-100 text-green-800 px-3 py-1 rounded-full">Android SDK</span>
-          <span class="tech-tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Gradle</span>
-          <span class="tech-tag bg-red-100 text-red-800 px-3 py-1 rounded-full">CameraX</span>
+          <span class="tech-tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Jetpack Compose</span>
         </div>
-        <div class="flex flex-wrap gap-4">
-          <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition hover:scale-105 shadow-md">
-            <i class="fas fa-download mr-2"></i>Download APK
-          </a>
-          <button onclick="openVideoProjectorModal()" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition hover:scale-105">
-            <i class="fas fa-info-circle mr-2"></i>View Details
-          </button>
-        </div>
+        <button onclick="openCodeLearnModal()" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">View Details</button>
       </div>
       
-      <div class="bg-white rounded-2xl p-8 mb-8 border border-gray-200 card-hover shadow-lg" data-aos="fade-right">
-        <h3 class="text-3xl font-bold mb-4 text-gray-800">IqubLedger - Financial Platform</h3>
-        <p class="text-lg text-gray-600 mb-6">
-          Full-stack financial management platform for Ethiopian Iqub communities built with Python Flask.
-          Features user authentication, transaction tracking, and reporting.
-        </p>
+      <div class="bg-white rounded-2xl p-8 mb-8 border border-gray-200 card-hover shadow-lg" data-aos="fade-left">
+        <h3 class="text-3xl font-bold mb-4 text-gray-800">Video Projector 2 - Android</h3>
+        <p class="text-lg text-gray-600 mb-6">Transforms surfaces into displays using CameraX and advanced projection algorithms.</p>
         <div class="flex flex-wrap gap-2 mb-6">
-          <span class="tech-tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Python Flask</span>
-          <span class="tech-tag bg-green-100 text-green-800 px-3 py-1 rounded-full">SQLite</span>
-          <span class="tech-tag bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Tailwind CSS</span>
+          <span class="tech-tag bg-green-100 text-green-800 px-3 py-1 rounded-full">Android SDK</span>
+          <span class="tech-tag bg-red-100 text-red-800 px-3 py-1 rounded-full">CameraX</span>
         </div>
-        <div class="flex flex-wrap gap-4">
-          <a href="#" target="_blank" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition hover:scale-105 shadow-md">
-            <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-          </a>
-          <a href="https://github.com/abihacker456/fintech-app" target="_blank" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition hover:scale-105">
-            <i class="fab fa-github mr-2"></i>Source Code
-          </a>
+        <button onclick="openVideoProjectorModal()" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">View Details</button>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 mb-8 border border-gray-200 card-hover shadow-lg" data-aos="fade-right">
+        <h3 class="text-3xl font-bold mb-4 text-gray-800">Android Security Analysis</h3>
+        <p class="text-lg text-gray-600 mb-6">Advanced malware analysis research, C2 protocols, and vulnerability assessment.</p>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="tech-tag bg-red-100 text-red-800 px-3 py-1 rounded-full">Cybersecurity</span>
+          <span class="tech-tag bg-gray-100 text-gray-800 px-3 py-1 rounded-full">Kali Linux</span>
         </div>
+        <button onclick="openSecurityAnalysisModal()" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">View Technical Details</button>
       </div>
 
       <div class="bg-white rounded-2xl p-8 mb-8 border border-gray-200 card-hover shadow-lg" data-aos="fade-left">
-        <div class="flex flex-col md:flex-row items-start">
-          <div class="md:w-2/3">
-            <h3 class="text-3xl font-bold mb-4 text-gray-800">Advanced Android Security Analysis</h3>
-            <p class="text-lg text-gray-600 mb-6">
-              A comprehensive Android application security research project demonstrating advanced malware analysis techniques,
-              C2 communication protocols, and vulnerability assessment methodologies.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="tech-tag bg-red-100 text-red-800 px-3 py-1 rounded-full">Android Security</span>
-              <span class="tech-tag bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Kotlin/Java</span>
-              <span class="tech-tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full">C2 Protocols</span>
-            </div>
-            <div class="flex flex-wrap gap-4">
-              <button onclick="openSecurityAnalysisModal()" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition hover:scale-105 shadow-md">
-                <i class="fas fa-shield-alt mr-2"></i>View Technical Details
-              </button>
-              <span class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold">
-                <i class="fas fa-lock mr-2"></i>Confidential Research
-              </span>
-            </div>
-          </div>
-          <div class="md:w-1/3 mt-6 md:mt-0 md:pl-8">
-            <div class="bg-gradient-to-br from-red-50 to-orange-50 p-6 rounded-xl">
-              <h4 class="font-bold text-lg mb-3 text-gray-800">Technical Achievements</h4>
-              <ul class="space-y-2 text-gray-700">
-                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Telegram C2 API</li>
-                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Forensic analysis</li>
-                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Permission bypassing</li>
-              </ul>
-            </div>
-          </div>
+        <h3 class="text-3xl font-bold mb-4 text-gray-800">IqubLedger - Fintech</h3>
+        <p class="text-lg text-gray-600 mb-6">Financial management platform for Ethiopian Iqub communities.</p>
+        <div class="flex gap-4">
+            <a href="https://github.com/abihacker456/fintech-app" target="_blank" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition">Source Code</a>
         </div>
       </div>
     </div>
   </section>
-
-  <section id="stats" class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white relative">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-12">Development Impact</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div data-aos="zoom-in" data-aos-delay="0">
-          <div class="text-5xl font-bold mb-2 stat-number text-white" data-count="125">0</div>
-          <p class="text-xl text-blue-100">Programming Lessons</p>
-        </div>
-        <div data-aos="zoom-in" data-aos-delay="100">
-          <div class="text-5xl font-bold mb-2 stat-number text-white" data-count="500+">0</div>
-          <p class="text-xl text-blue-100">Potential Users</p>
-        </div>
-        <div data-aos="zoom-in" data-aos-delay="200">
-          <div class="text-5xl font-bold mb-2 stat-number text-white" data-count="15000">0</div>
-          <p class="text-xl text-blue-100">Lines of Code</p>
-        </div>
-        <div data-aos="zoom-in" data-aos-delay="300">
-          <div class="text-5xl font-bold mb-2 stat-number text-white" data-count="25">0</div>
-          <p class="text-xl text-blue-100">App Features</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="certifications" class="py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-4 text-gray-900" data-aos="fade-up">Certifications & Education</h2>
-      <p class="text-xl text-center text-gray-600 mb-12" data-aos="fade-up">Verified credentials from leading platforms</p>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-100 card-hover" data-aos="fade-up" data-aos-delay="0">
-          <h3 class="text-xl font-bold mb-2 text-gray-800">🎓 Education</h3>
-          <p class="text-gray-700 mb-2"><strong>Madda Walabu University</strong></p>
-          <p class="text-gray-600 mb-3">Bachelor of Information Technology</p>
-          <p class="text-sm text-gray-500">Year 2 Student | Bale Robe, Ethiopia</p>
-        </div>
-        
-        <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl border border-green-100 card-hover" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="text-xl font-bold mb-2 text-gray-800">🤖 Android Development</h3>
-          <p class="text-gray-600 mb-3">Udacity Nanodegree Program</p>
-          <a href="#" class="text-blue-600 font-semibold hover:underline inline-flex items-center">
-            <i class="fas fa-external-link-alt mr-2"></i>View Certificate
-          </a>
-        </div>
-        
-        <div class="bg-gradient-to-br from-yellow-50 to-amber-50 p-6 rounded-xl border border-yellow-100 card-hover" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="text-xl font-bold mb-2 text-gray-800">📊 Data Analysis</h3>
-          <p class="text-gray-600 mb-3">Udacity Nanodegree Program</p>
-          <a href="#" class="text-blue-600 font-semibold hover:underline inline-flex items-center">
-            <i class="fas fa-external-link-alt mr-2"></i>View Certificate
-          </a>
-        </div>
-        
-        <div class="bg-gradient-to-br from-teal-50 to-cyan-50 p-6 rounded-xl border border-teal-100 card-hover" data-aos="fade-up" data-aos-delay="300">
-          <h3 class="text-xl font-bold mb-2 text-gray-800">🧠 AI Fundamentals</h3>
-          <p class="text-gray-600 mb-3">Udacity Nanodegree Program</p>
-          <a href="#" class="text-blue-600 font-semibold hover:underline inline-flex items-center">
-            <i class="fas fa-external-link-alt mr-2"></i>View Certificate
-          </a>
-        </div>
-
-        <div class="bg-gradient-to-br from-red-50 to-pink-50 p-6 rounded-xl border border-red-100 card-hover" data-aos="fade-up" data-aos-delay="400">
-          <h3 class="text-xl font-bold mb-2 text-gray-800">🔐 Ethical Hacking</h3>
-          <p class="text-gray-600 mb-3">Simplilearn SkillUp</p>
-          <a href="#" class="text-blue-600 font-semibold hover:underline inline-flex items-center">
-            <i class="fas fa-external-link-alt mr-2"></i>View Certificate
-          </a>
-        </div>
-
-        <div class="bg-gradient-to-br from-gray-50 to-slate-50 p-6 rounded-xl border border-gray-100 card-hover" data-aos="fade-up" data-aos-delay="500">
-          <h3 class="text-xl font-bold mb-2 text-gray-800">🐧 Kali Linux Basics</h3>
-          <p class="text-gray-600 mb-3">Simplilearn SkillUp</p>
-          <a href="#" class="text-blue-600 font-semibold hover:underline inline-flex items-center">
-            <i class="fas fa-external-link-alt mr-2"></i>View Certificate
-          </a>
-        </div>
+  <section id="stats" class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold mb-12">Impact</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div><div class="text-5xl font-bold mb-2 stat-number" data-count="125">0</div><p>Lessons</p></div>
+        <div><div class="text-5xl font-bold mb-2 stat-number" data-count="500+">0</div><p>Users</p></div>
+        <div><div class="text-5xl font-bold mb-2 stat-number" data-count="15000">0</div><p>Lines of Code</p></div>
+        <div><div class="text-5xl font-bold mb-2 stat-number" data-count="25">0</div><p>Apps Built</p></div>
       </div>
     </div>
   </section>
 
   <section id="contact" class="py-20 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-4xl font-bold mb-4 text-gray-900" data-aos="zoom-in">Let's Work Together</h2>
-      <p class="text-xl text-gray-600 mb-8" data-aos="fade-up">Available for freelance projects, internships, and collaborations</p>
-      
-      <div class="bg-white rounded-2xl p-8 max-w-2xl mx-auto shadow-lg" data-aos="flip-up">
-        <div class="flex justify-center mb-6">
-          <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-600 shadow-lg hover:shadow-xl transition-shadow">
-            <img 
-              src="photo_page-0001.jpg" 
-              alt="Abinet Endale" 
-              class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-              onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-blue-100\'><span class=\'text-2xl font-bold text-blue-600\'>AE</span></div>';"
-            >
-          </div>
+      <h2 class="text-4xl font-bold mb-8 text-gray-900">Let's Work Together</h2>
+      <div class="bg-white rounded-2xl p-8 shadow-lg">
+        <div class="space-y-4 mb-8">
+            <p class="text-xl text-gray-800"><i class="fas fa-phone mr-2 text-green-500"></i> 0948713566 / 0914156456</p>
+            <p class="text-xl text-gray-800"><i class="fas fa-envelope mr-2 text-red-500"></i> endaleabinet67@gmail.com</p>
+            <p class="text-xl text-gray-800"><i class="fas fa-map-marker-alt mr-2 text-blue-500"></i> Bale Robe, Ethiopia</p>
         </div>
-        
-        <div class="space-y-6 text-left max-w-md mx-auto">
-          <div class="flex items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition">
-            <i class="fas fa-user text-blue-600 text-xl mr-4"></i>
-            <div>
-              <p class="font-semibold text-gray-800">Name</p>
-              <p class="text-gray-600">Abinet Endale</p>
-            </div>
-          </div>
-          
-          <div class="flex items-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition">
-            <i class="fas fa-phone text-green-600 text-xl mr-4"></i>
-            <div>
-              <p class="font-semibold text-gray-800">Phone</p>
-              <p class="text-gray-600">0948713566 / 0914156456</p>
-            </div>
-          </div>
-          
-          <div class="flex items-center p-4 bg-red-50 rounded-lg hover:bg-red-100 transition">
-            <i class="fas fa-map-marker-alt text-red-600 text-xl mr-4"></i>
-            <div>
-              <p class="font-semibold text-gray-800">Location</p>
-              <p class="text-gray-600">Bale Robe, Ethiopia</p>
-            </div>
-          </div>
-          
-          <div class="flex items-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition">
-            <i class="fas fa-envelope text-purple-600 text-xl mr-4"></i>
-            <div>
-              <p class="font-semibold text-gray-800">Email</p>
-              <p class="text-gray-600">endaleabinet67@gmail.com</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex justify-center space-x-6 mt-8">
-          <a href="https://github.com/abihacker456" target="_blank" class="social-icon text-gray-800 text-3xl hover:text-gray-900"><i class="fab fa-github"></i></a>
-          <a href="https://t.me/fintechcompany1" target="_blank" class="social-icon text-blue-500 text-3xl hover:text-blue-600"><i class="fab fa-telegram"></i></a>
-          <a href="https://www.linkedin.com/in/abinet-endale" target="_blank" class="social-icon text-blue-700 text-3xl hover:text-blue-800"><i class="fab fa-linkedin"></i></a>
-          <a href="mailto:endaleabinet67@gmail.com" class="social-icon text-red-500 text-3xl hover:text-red-600"><i class="fas fa-envelope"></i></a>
-        </div>
-        
-        <div class="mt-8 pt-8 border-t border-gray-200">
-          <h3 class="text-xl font-bold mb-4 text-gray-800">Send me a message</h3>
-          <form id="contact-form" class="space-y-4 text-left">
-            <input type="text" placeholder="Your Name" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 text-gray-800 bg-white">
-            <input type="email" placeholder="Your Email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 text-gray-800 bg-white">
-            <textarea placeholder="Your Message" rows="3" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 text-gray-800 bg-white"></textarea>
-            <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-md">
-              <i class="fas fa-paper-plane mr-2"></i>Send Message
-            </button>
-          </form>
+        <div class="flex justify-center space-x-6">
+          <a href="https://github.com/abihacker456" class="text-3xl text-gray-800 hover:scale-125 transition"><i class="fab fa-github"></i></a>
+          <a href="https://t.me/fintechcompany1" class="text-3xl text-blue-500 hover:scale-125 transition"><i class="fab fa-telegram"></i></a>
+          <a href="https://www.linkedin.com/in/abinet-endale" class="text-3xl text-blue-700 hover:scale-125 transition"><i class="fab fa-linkedin"></i></a>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <p class="text-2xl font-bold mb-4">Abinet Endale</p>
-      <p class="text-gray-400 mb-6">Android & Full Stack Developer | IT Student</p>
-      <div class="flex justify-center space-x-4 mb-6">
-        <a href="#home" class="text-gray-400 hover:text-white transition">Home</a>
-        <a href="#projects" class="text-gray-400 hover:text-white transition">Projects</a>
-        <a href="#certifications" class="text-gray-400 hover:text-white transition">Certifications</a>
-        <a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a>
-      </div>
-      <p class="text-gray-500 text-sm">&copy; 2025 Abinet Endale. All rights reserved.</p>
-      <p class="text-gray-500 text-sm mt-2">Made with <i class="fas fa-heart text-red-500"></i> from Ethiopia</p>
-    </div>
+  <footer class="bg-gray-900 text-white py-8 text-center">
+    <p>&copy; 2025 Abinet Endale. Built with <i class="fas fa-heart text-red-500"></i> in Ethiopia.</p>
   </footer>
 
   <div id="codeLearnModal" class="modal hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
-    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-      <div class="p-6">
-        <div class="flex justify-between items-center mb-6">
-          <h3 class="text-2xl font-bold text-gray-900">CodeLearn Pro - Technical</h3>
-          <button onclick="closeCodeLearnModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-        <div class="space-y-4 text-left">
-          <div class="bg-blue-50 p-4 rounded-lg">
-            <h4 class="font-bold text-lg mb-2 text-blue-900">📱 Project Overview</h4>
-            <p class="text-gray-700">A comprehensive programming learning Android app with 125 lessons across 5 languages.</p>
-          </div>
-          <div class="bg-green-50 p-4 rounded-lg">
-            <h4 class="font-bold text-lg mb-2 text-green-900">✨ Key Features</h4>
-            <ul class="list-disc pl-5 space-y-2 text-gray-700">
-              <li>125 comprehensive programming lessons</li>
-              <li>Real code execution via JDoodle API</li>
-              <li>Interactive coding exercises</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 relative">
+        <button onclick="closeCodeLearnModal()" class="absolute top-4 right-4 text-2xl"><i class="fas fa-times"></i></button>
+        <h3 class="text-2xl font-bold mb-4 text-gray-900">CodeLearn Pro Details</h3>
+        <p class="text-gray-700">Features 125 lessons, real-time code compilation via JDoodle API, and local Room database storage.</p>
     </div>
   </div>
 
   <div id="videoProjectorModal" class="modal hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
-    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-      <div class="p-6">
-        <div class="flex justify-between items-center mb-6">
-          <h3 class="text-2xl font-bold text-gray-900">Video Projector 2</h3>
-          <button onclick="closeVideoProjectorModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-        <div class="space-y-4 text-left">
-          <div class="bg-purple-50 p-4 rounded-lg">
-            <h4 class="font-bold text-lg mb-2 text-purple-900">📽️ Technical Overview</h4>
-            <p class="text-gray-700">Transforms Android devices into a projection interface using CameraX and advanced image processing.</p>
-          </div>
-          <div class="bg-yellow-50 p-4 rounded-lg">
-            <h4 class="font-bold text-lg mb-2 text-yellow-900">🔧 Challenges Solved</h4>
-            <ul class="list-disc pl-5 space-y-2 text-gray-700">
-              <li>Complex Gradle dependency management</li>
-              <li>Low-latency camera rendering</li>
-              <li>File system access across different Android versions</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 relative">
+        <button onclick="closeVideoProjectorModal()" class="absolute top-4 right-4 text-2xl"><i class="fas fa-times"></i></button>
+        <h3 class="text-2xl font-bold mb-4 text-gray-900">Video Projector 2 Details</h3>
+        <p class="text-gray-700">Solved complex Gradle dependency issues and implemented low-latency CameraX preview for real-time projection.</p>
     </div>
   </div>
 
   <div id="securityAnalysisModal" class="modal hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
-    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-      <div class="p-6">
-        <div class="flex justify-between items-center mb-6">
-          <h3 class="text-2xl font-bold text-gray-900">Security Research</h3>
-          <button onclick="closeSecurityAnalysisModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-        <div class="space-y-4 text-left">
-          <div class="bg-red-50 p-4 rounded-lg">
-            <h4 class="font-bold text-lg mb-2 text-red-900">🔒 Confidential Research</h4>
-            <p class="text-gray-700">This project explores the theoretical and practical implementation of Android malware for defensive analysis.</p>
-          </div>
-          <div class="bg-gray-100 p-4 rounded-lg">
-            <h4 class="font-bold text-lg mb-2 text-gray-900">📡 Methodology</h4>
-            <ul class="list-disc pl-5 space-y-2 text-gray-700">
-              <li>C2 Communication via encrypted Telegram channels</li>
-              <li>Static and Dynamic Analysis of APKs</li>
-              <li>Vulnerability Assessment Reporting</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div class="bg-white rounded-2xl max-w-2xl w-full p-6 relative">
+        <button onclick="closeSecurityAnalysisModal()" class="absolute top-4 right-4 text-2xl"><i class="fas fa-times"></i></button>
+        <h3 class="text-2xl font-bold mb-4 text-gray-900">Security Research Details</h3>
+        <p class="text-gray-700">Confidential research on Android malware behavior, utilizing Telegram API for Command & Control simulation in a controlled environment.</p>
     </div>
   </div>
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-  
   <script>
-    // 1. Initialize AOS (Scroll Animations)
-    AOS.init({
-      duration: 800,
-      offset: 100,
-      once: true,
-      easing: 'ease-out-cubic'
-    });
+    // Animations
+    AOS.init({ duration: 800, once: true });
+    VanillaTilt.init(document.querySelectorAll(".card-hover"), { max: 10, speed: 400, glare: true, "max-glare": 0.1 });
 
-    // 2. Initialize Vanilla Tilt (3D Card Effect)
-    VanillaTilt.init(document.querySelectorAll(".card-hover"), {
-      max: 10,
-      speed: 400,
-      glare: true,
-      "max-glare": 0.1,
-      scale: 1.02
-    });
+    // Modals
+    function openCodeLearnModal() { document.getElementById('codeLearnModal').classList.remove('hidden'); }
+    function closeCodeLearnModal() { document.getElementById('codeLearnModal').classList.add('hidden'); }
+    function openVideoProjectorModal() { document.getElementById('videoProjectorModal').classList.remove('hidden'); }
+    function closeVideoProjectorModal() { document.getElementById('videoProjectorModal').classList.add('hidden'); }
+    function openSecurityAnalysisModal() { document.getElementById('securityAnalysisModal').classList.remove('hidden'); }
+    function closeSecurityAnalysisModal() { document.getElementById('securityAnalysisModal').classList.add('hidden'); }
+    
+    // Close on outside click
+    window.onclick = function(event) { if (event.target.classList.contains('modal')) { event.target.classList.add('hidden'); }}
 
-    // 3. Animated Number Counters for Stats
+    // Stats Counter
     const statsSection = document.querySelector('#stats');
     const statNumbers = document.querySelectorAll('.stat-number');
     let started = false;
-
     window.addEventListener('scroll', () => {
-        if (statsSection && window.scrollY >= statsSection.offsetTop - 600) {
-            if (!started) {
-                statNumbers.forEach(num => startCount(num));
-            }
+        if (statsSection && window.scrollY >= statsSection.offsetTop - 600 && !started) {
+            statNumbers.forEach(el => {
+                let goal = parseInt(el.dataset.count);
+                let isPlus = el.dataset.count.includes('+');
+                let count = 0;
+                let counter = setInterval(() => {
+                    count += Math.ceil(goal / 50);
+                    if(count >= goal) { count = goal; clearInterval(counter); }
+                    el.textContent = count + (isPlus ? '+' : '');
+                }, 30);
+            });
             started = true;
         }
     });
 
-    function startCount(el) {
-        let goal = parseInt(el.dataset.count);
-        // Handle numbers with "+" (e.g. 500+)
-        let isPlus = el.dataset.count.includes('+');
-        let count = 0;
-        let speed = 2000 / goal;
-        if(goal > 1000) speed = 1; // Faster for large numbers
-        
-        let counter = setInterval(() => {
-            count += Math.ceil(goal / 100); // Increment logic
-            if(count >= goal) {
-                count = goal;
-                clearInterval(counter);
-            }
-            el.textContent = count + (isPlus ? '+' : '');
-        }, 20);
-    }
-
-    // 4. Custom Cursor Logic
+    // Custom Cursor
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorOutline = document.querySelector('.cursor-outline');
-
     window.addEventListener('mousemove', function(e) {
-        const posX = e.clientX;
-        const posY = e.clientY;
-
-        // Dot follows instantly
-        cursorDot.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
-
-        // Outline follows with slight delay
-        cursorOutline.animate({
-            left: `${posX}px`,
-            top: `${posY}px`
-        }, { duration: 500, fill: "forwards" });
+        cursorDot.style.left = `${e.clientX}px`; cursorDot.style.top = `${e.clientY}px`;
+        cursorOutline.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 500, fill: "forwards" });
+    });
+    
+    // Mobile Menu
+    document.getElementById('mobile-menu-button').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
     });
 
-    // Add hover effect to interactive elements
-    document.querySelectorAll('a, button, input, textarea, .card-hover').forEach(el => {
-        el.addEventListener('mouseenter', () => cursorOutline.classList.add('cursor-hovered'));
-        el.addEventListener('mouseleave', () => cursorOutline.classList.remove('cursor-hovered'));
-    });
-
-    // 5. Mobile Menu Toggle
-    const btn = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('mobile-menu');
-
-    btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-    });
-
-    // 6. Dark Mode Toggle
+    // Dark Mode
     const themeToggle = document.getElementById('theme-toggle');
-    const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-    const body = document.body;
-    const icon = themeToggle.querySelector('i');
-
-    function toggleTheme() {
-      body.classList.toggle('dark-mode');
-      if(body.classList.contains('dark-mode')) {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-      } else {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-      }
-    }
-
-    themeToggle.addEventListener('click', toggleTheme);
-    themeToggleMobile.addEventListener('click', toggleTheme);
-
-    // 7. Modal Logic
-    function openCodeLearnModal() { document.getElementById('codeLearnModal').classList.remove('hidden'); }
-    function closeCodeLearnModal() { document.getElementById('codeLearnModal').classList.add('hidden'); }
-
-    function openVideoProjectorModal() { document.getElementById('videoProjectorModal').classList.remove('hidden'); }
-    function closeVideoProjectorModal() { document.getElementById('videoProjectorModal').classList.add('hidden'); }
-
-    function openSecurityAnalysisModal() { document.getElementById('securityAnalysisModal').classList.remove('hidden'); }
-    function closeSecurityAnalysisModal() { document.getElementById('securityAnalysisModal').classList.add('hidden'); }
-
-    // Close modals on outside click
-    window.onclick = function(event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.classList.add('hidden');
-        }
-    }
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        themeToggle.querySelector('i').classList.toggle('fa-moon');
+        themeToggle.querySelector('i').classList.toggle('fa-sun');
+    });
   </script>
 </body>
 </html>
