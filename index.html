@@ -287,25 +287,6 @@
       }
     }
     
-    /* Gradient border */
-    .gradient-border {
-      position: relative;
-      border: 2px solid transparent;
-      background-clip: padding-box;
-    }
-    
-    .gradient-border::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      right: -2px;
-      bottom: -2px;
-      left: -2px;
-      z-index: -1;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: inherit;
-    }
-    
     /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 10px;
@@ -522,9 +503,9 @@
               <span class="tech-tag bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 px-4 py-2 rounded-full">MVVM Architecture</span>
             </div>
             <div class="flex flex-wrap gap-4">
-              <button onclick="downloadProject('CodeLearn Pro')" class="gradient-bg text-white px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg">
+              <a href="https://drive.google.com/uc?export=download&id=1blV8ooxzDjy_jB5Fm2TgTmsWC-6nXWAA" target="_blank" class="gradient-bg text-white px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg">
                 <i class="fas fa-download mr-3"></i>Download APK
-              </button>
+              </a>
               <button onclick="openCodeLearnModal()" class="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-105">
                 <i class="fas fa-info-circle mr-3"></i>View Details
               </button>
@@ -638,9 +619,9 @@
               <span class="tech-tag bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 px-4 py-2 rounded-full">MediaProjection</span>
             </div>
             <div class="flex flex-wrap gap-4">
-              <button onclick="downloadProject('Video Projector 2')" class="gradient-bg text-white px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg">
+              <a href="https://drive.google.com/uc?export=download&id=1BUh69rbeXmwVIfDKS4P-Mkt3T60xaKtE" target="_blank" class="gradient-bg text-white px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg">
                 <i class="fas fa-download mr-3"></i>Download APK
-              </button>
+              </a>
               <button onclick="openVideoProjectorModal()" class="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-105">
                 <i class="fas fa-info-circle mr-3"></i>View Details
               </button>
@@ -754,9 +735,9 @@
             <a href="https://github.com/abihacker456/fintech-app" target="_blank" class="gradient-bg text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg">
               <i class="fab fa-github mr-2"></i>Source Code
             </a>
-            <button onclick="viewProjectDemo('IqubLedger')" class="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-xl font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-105">
-              <i class="fas fa-external-link-alt mr-2"></i>View Demo
-            </button>
+            <a href="https://fintech-app-1-2894.onrender.com/login" target="_blank" class="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-xl font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-105">
+              <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+            </a>
           </div>
         </div>
 
@@ -807,16 +788,36 @@
           <p class="text-xl text-blue-100">Programming Lessons</p>
         </div>
         <div data-aos="zoom-in" data-aos-delay="100">
-          <div class="text-5xl md:text-6xl font-bold mb-4 stat-number text-white" data-count="500">0+</div>
-          <p class="text-xl text-blue-100">Potential Users</p>
+          <div class="text-5xl md:text-6xl font-bold mb-4 stat-number text-white" data-count="1000">0+</div>
+          <p class="text-xl text-blue-100">Active Users</p>
         </div>
         <div data-aos="zoom-in" data-aos-delay="200">
-          <div class="text-5xl md:text-6xl font-bold mb-4 stat-number text-white" data-count="15000">0</div>
+          <div class="text-5xl md:text-6xl font-bold mb-4 stat-number text-white" data-count="25000">0</div>
           <p class="text-xl text-blue-100">Lines of Code</p>
         </div>
         <div data-aos="zoom-in" data-aos-delay="300">
-          <div class="text-5xl md:text-6xl font-bold mb-4 stat-number text-white" data-count="25">0</div>
+          <div class="text-5xl md:text-6xl font-bold mb-4 stat-number text-white" data-count="7">0</div>
+          <p class="text-xl text-blue-100">Certifications</p>
+        </div>
+      </div>
+      
+      <!-- Additional Stats Row -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mt-16">
+        <div data-aos="zoom-in" data-aos-delay="400">
+          <div class="text-5xl md:text-6xl font-bold mb-4 stat-number text-white" data-count="5">0</div>
+          <p class="text-xl text-blue-100">Programming Languages</p>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="500">
+          <div class="text-5xl md:text-6xl font-bold mb-4 stat-number text-white" data-count="15">0+</div>
           <p class="text-xl text-blue-100">App Features</p>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="600">
+          <div class="text-5xl md:text-6xl font-bold mb-4 stat-number text-white" data-count="4">0</div>
+          <p class="text-xl text-blue-100">Projects</p>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="700">
+          <div class="text-5xl md:text-6xl font-bold mb-4 stat-number text-white" data-count="98">0%</div>
+          <p class="text-xl text-blue-100">Success Rate</p>
         </div>
       </div>
     </div>
@@ -851,9 +852,9 @@
             <h3 class="text-xl font-bold text-gray-800 dark:text-white">🤖 Android Development</h3>
           </div>
           <p class="text-gray-600 dark:text-gray-400 mb-4">Udacity Nanodegree Program</p>
-          <button onclick="viewCertificate('android.pdf', 'Android Development Certificate')" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline inline-flex items-center transition-all duration-300 hover:scale-105">
+          <a href="android.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline inline-flex items-center transition-all duration-300 hover:scale-105">
             <i class="fas fa-external-link-alt mr-2"></i>View Certificate
-          </button>
+          </a>
         </div>
         
         <!-- Data Analysis -->
@@ -865,9 +866,9 @@
             <h3 class="text-xl font-bold text-gray-800 dark:text-white">📊 Data Analysis</h3>
           </div>
           <p class="text-gray-600 dark:text-gray-400 mb-4">Udacity Nanodegree Program</p>
-          <button onclick="viewCertificate('data-analysis.pdf', 'Data Analysis Certificate')" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline inline-flex items-center transition-all duration-300 hover:scale-105">
+          <a href="data-analysis.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline inline-flex items-center transition-all duration-300 hover:scale-105">
             <i class="fas fa-external-link-alt mr-2"></i>View Certificate
-          </button>
+          </a>
         </div>
         
         <!-- AI Fundamentals -->
@@ -879,9 +880,9 @@
             <h3 class="text-xl font-bold text-gray-800 dark:text-white">🧠 AI Fundamentals</h3>
           </div>
           <p class="text-gray-600 dark:text-gray-400 mb-4">Udacity Nanodegree Program</p>
-          <button onclick="viewCertificate('ai-fundamentals.pdf', 'AI Fundamentals Certificate')" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline inline-flex items-center transition-all duration-300 hover:scale-105">
+          <a href="ai-fundamentals.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline inline-flex items-center transition-all duration-300 hover:scale-105">
             <i class="fas fa-external-link-alt mr-2"></i>View Certificate
-          </button>
+          </a>
         </div>
 
         <!-- Full Stack Development -->
@@ -893,9 +894,9 @@
             <h3 class="text-xl font-bold text-gray-800 dark:text-white">🚀 Full Stack Development</h3>
           </div>
           <p class="text-gray-600 dark:text-gray-400 mb-4">Udacity Nanodegree Program</p>
-          <button onclick="viewCertificate('programming.pdf', 'Full Stack Development Certificate')" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline inline-flex items-center transition-all duration-300 hover:scale-105">
+          <a href="programming.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline inline-flex items-center transition-all duration-300 hover:scale-105">
             <i class="fas fa-external-link-alt mr-2"></i>View Certificate
-          </button>
+          </a>
         </div>
 
         <!-- Ethical Hacking -->
@@ -907,9 +908,9 @@
             <h3 class="text-xl font-bold text-gray-800 dark:text-white">🔐 Ethical Hacking</h3>
           </div>
           <p class="text-gray-600 dark:text-gray-400 mb-4">Simplilearn SkillUp</p>
-          <button onclick="viewCertificate('certificate-for-hacking.pdf', 'Ethical Hacking Certificate')" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline inline-flex items-center transition-all duration-300 hover:scale-105">
+          <a href="certificate-for-hacking.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline inline-flex items-center transition-all duration-300 hover:scale-105">
             <i class="fas fa-external-link-alt mr-2"></i>View Certificate
-          </button>
+          </a>
         </div>
 
         <!-- Kali Linux Basics -->
@@ -921,9 +922,9 @@
             <h3 class="text-xl font-bold text-gray-800 dark:text-white">🐧 Kali Linux Basics</h3>
           </div>
           <p class="text-gray-600 dark:text-gray-400 mb-4">Simplilearn SkillUp</p>
-          <button onclick="viewCertificate('Kali Linux Certificate.pdf', 'Kali Linux Certificate')" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline inline-flex items-center transition-all duration-300 hover:scale-105">
+          <a href="Kali Linux Certificate.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 font-semibold hover:underline inline-flex items-center transition-all duration-300 hover:scale-105">
             <i class="fas fa-external-link-alt mr-2"></i>View Certificate
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -1244,37 +1245,6 @@
     </div>
   </div>
 
-  <!-- Certificate Viewer Modal -->
-  <div id="certificateModal" class="modal hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
-    <div class="bg-white dark:bg-gray-800 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl modal-enter">
-      <div class="p-10">
-        <div class="flex justify-between items-center mb-8">
-          <h3 id="certificateTitle" class="text-3xl font-bold text-gray-900 dark:text-white"></h3>
-          <button onclick="closeModal('certificateModal')" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 text-2xl transition-all duration-300">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-        
-        <div class="text-center">
-          <div class="w-32 h-32 mx-auto mb-8 rounded-2xl bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 flex items-center justify-center">
-            <i class="fas fa-certificate text-5xl text-blue-600 dark:text-blue-400"></i>
-          </div>
-          
-          <p class="text-gray-700 dark:text-gray-300 text-lg mb-8" id="certificateMessage"></p>
-          
-          <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <button onclick="downloadCertificate()" class="gradient-bg text-white px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 hover:scale-105">
-              <i class="fas fa-download mr-3"></i>Download Certificate
-            </button>
-            <button onclick="closeModal('certificateModal')" class="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 hover:scale-105">
-              <i class="fas fa-times mr-3"></i>Close
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Success Modal -->
   <div id="successModal" class="modal hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
     <div class="bg-white dark:bg-gray-800 rounded-3xl max-w-md w-full shadow-2xl modal-enter">
@@ -1320,7 +1290,7 @@
         });
       }
 
-      // 3. Animated Number Counters
+      // 3. Animated Number Counters with Updated Stats
       const statsSection = document.querySelector('#stats');
       const statNumbers = document.querySelectorAll('.stat-number');
       let started = false;
@@ -1503,7 +1473,7 @@
         });
       });
       
-      // Initialize loading bar
+      // 12. Initialize loading bar
       setTimeout(() => {
         document.querySelector('.loading-bar').style.display = 'none';
       }, 2000);
@@ -1528,51 +1498,11 @@
       openModal('successModal');
     }
 
-    function downloadProject(projectName) {
-      showSuccess(
-        'Download APK',
-        `The ${projectName} APK download would start here.\n\nIn a production environment, this would download the actual APK file.\n\nFor now, please contact me for the APK file.`
-      );
-    }
-
-    function viewProjectDemo(projectName) {
-      showSuccess(
-        'Project Demo',
-        `The ${projectName} live demo would open here.\n\nFor this demo, you can view the source code on GitHub.\n\nIn production, this would link to the deployed application.`
-      );
-    }
-
-    function viewCertificate(filename, certificateName) {
-      document.getElementById('certificateTitle').textContent = certificateName;
-      document.getElementById('certificateMessage').textContent = 
-        `This would open the ${certificateName} PDF file.\n\nIn a production environment, this would display the actual certificate.\n\nFor now, this is a demonstration of the certificate viewing functionality.`;
-      
-      // Store filename for download
-      document.getElementById('certificateModal').dataset.filename = filename;
-      openModal('certificateModal');
-    }
-
-    function downloadCertificate() {
-      const filename = document.getElementById('certificateModal').dataset.filename;
-      const certificateName = document.getElementById('certificateTitle').textContent;
-      
-      showSuccess(
-        'Certificate Download',
-        `The ${certificateName} (${filename}) would download here.\n\nIn production, this would download the actual PDF certificate file.\n\nFor demonstration purposes, this shows the download functionality.`
-      );
-      
-      closeModal('certificateModal');
-    }
-
     // Make functions globally available
     window.openCodeLearnModal = openCodeLearnModal;
     window.openVideoProjectorModal = openVideoProjectorModal;
     window.openSecurityAnalysisModal = openSecurityAnalysisModal;
     window.closeModal = closeModal;
-    window.downloadProject = downloadProject;
-    window.viewProjectDemo = viewProjectDemo;
-    window.viewCertificate = viewCertificate;
-    window.downloadCertificate = downloadCertificate;
 
     // Error handling for images
     window.addEventListener('error', function(e) {
