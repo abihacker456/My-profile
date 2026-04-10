@@ -2,239 +2,260 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Abinet Endale – Android & Full Stack Developer. IT student at Madda Walabu University, specializing in Kotlin, Android, full-stack web, and cybersecurity.">
-  <meta name="author" content="Abinet Endale">
-  <meta name="theme-color" content="#3b82f6">
-  <title>Abinet Endale | Android & Full Stack Developer</title>
-  
-  <!-- Stylesheets & Libraries -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abinet Endale – Android & Full Stack Developer</title>
+  <!-- Tailwind + Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    /* Custom styles – clean & professional, no overbearing AI feel */
     :root {
       --primary: #2563eb;
-      --primary-dark: #1e40af;
       --secondary: #7c3aed;
       --accent: #10b981;
-      --dark: #0f172a;
-      --light: #f8fafc;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--light);
-      transition: background-color 0.3s, color 0.2s;
       scroll-behavior: smooth;
     }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
-    .gradient-bg { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); }
-    .gradient-text { background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-    .glass-nav { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); }
-    .dark-mode .glass-nav { background: rgba(15,23,42,0.9); border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 35px -12px rgba(0,0,0,0.15); }
-    .tech-tag { transition: all 0.2s; background: rgba(59,130,246,0.08); border-radius: 40px; font-weight: 500; }
-    .tech-tag:hover { background: var(--primary); color: white; transform: translateY(-2px); }
-    .dark-mode .tech-tag { background: rgba(59,130,246,0.2); }
-    .dark-mode .tech-tag:hover { background: var(--primary); color: white; }
-    .skill-progress { height: 8px; border-radius: 12px; background: linear-gradient(90deg, var(--primary), var(--secondary)); width: 0; transition: width 1.2s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
-    .stat-number { font-size: 3rem; font-weight: 800; line-height: 1; background: linear-gradient(135deg, #fff, #e2e8f0); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .dark-mode .stat-number { background: linear-gradient(135deg, #f1f5f9, #cbd5e1); -webkit-background-clip: text; background-clip: text; }
-    .modal-enter { animation: modalFadeIn 0.25s ease-out; }
-    @keyframes modalFadeIn { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #e2e8f0; border-radius: 10px; }
-    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
-    .dark-mode ::-webkit-scrollbar-track { background: #1e293b; }
-    .btn-primary { transition: all 0.2s; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(37,99,235,0.3); }
-    .floating { animation: float 5s ease-in-out infinite; }
-    @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-8px); } 100% { transform: translateY(0px); } }
-    .dark-mode body { background-color: #0f172a; color: #e2e8f0; }
-    .dark-mode .bg-white { background-color: #1e293b !important; }
-    .dark-mode .bg-gray-50 { background-color: #0f172a !important; }
-    .dark-mode .border-gray-200 { border-color: #334155 !important; }
-    .dark-mode .text-gray-700, .dark-mode .text-gray-600 { color: #cbd5e1 !important; }
-    .dark-mode .text-gray-900 { color: #f1f5f9 !important; }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+    .project-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
+    }
+    .tech-badge {
+      background: #f1f5f9;
+      color: #1e293b;
+      padding: 0.25rem 0.85rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .dark .tech-badge {
+      background: #1e293b;
+      color: #e2e8f0;
+    }
+    .tech-badge:hover {
+      background: var(--primary);
+      color: white;
+    }
+    /* dark mode support (simple toggle) */
+    .dark {
+      background-color: #0f172a;
+      color: #e2e8f0;
+    }
+    .dark .bg-white { background-color: #1e293b !important; }
+    .dark .bg-gray-50 { background-color: #0f172a !important; }
+    .dark .bg-gray-100 { background-color: #1e293b !important; }
+    .dark .border-gray-200 { border-color: #334155 !important; }
+    .dark .text-gray-600, .dark .text-gray-500 { color: #94a3b8 !important; }
+    .dark .text-gray-700, .dark .text-gray-800 { color: #cbd5e1 !important; }
+    .dark .text-gray-900 { color: #f1f5f9 !important; }
+    .dark .shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3); }
+    /* stat numbers animation */
+    .stat-number {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    @media (min-width: 768px) {
+      .stat-number { font-size: 3.5rem; }
+    }
+    /* smooth scroll offset */
+    html {
+      scroll-padding-top: 80px;
+    }
+    /* image gallery consistency */
+    .gallery-img {
+      object-fit: cover;
+      width: 100%;
+      height: 200px;
+      transition: transform 0.4s ease;
+    }
+    .gallery-img:hover {
+      transform: scale(1.02);
+    }
   </style>
 </head>
-<body class="bg-gray-50 transition-colors duration-300">
+<body class="bg-white text-gray-800 transition-colors duration-300">
 
-  <!-- Navigation -->
-  <nav class="glass-nav fixed w-full top-0 z-50 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
-      <a href="#home" class="text-2xl font-bold gradient-text tracking-tight">Abinet Endale</a>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="#home" class="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-primary transition">Home</a>
-        <a href="#skills" class="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-primary transition">Skills</a>
-        <a href="#projects" class="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-primary transition">Projects</a>
-        <a href="#stats" class="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-primary transition">Impact</a>
-        <a href="#certifications" class="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-primary transition">Credentials</a>
-        <a href="#contact" class="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-primary transition">Contact</a>
-        <button id="theme-toggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 transition">
-          <i class="fas fa-moon"></i>
-        </button>
+  <!-- Navigation (sticky, minimal) -->
+  <nav class="bg-white/90 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50 transition-all dark:bg-gray-900/90 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="#home" class="text-2xl font-bold gradient-text">Abinet Endale</a>
+        <div class="hidden md:flex space-x-7 text-gray-700 dark:text-gray-200 font-medium">
+          <a href="#home" class="hover:text-blue-600 transition">Home</a>
+          <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
+          <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
+          <a href="#stats" class="hover:text-blue-600 transition">Stats</a>
+          <a href="#certifications" class="hover:text-blue-600 transition">Certifications</a>
+          <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+          <button id="darkModeToggle" class="ml-2 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"><i class="fas fa-moon"></i></button>
+        </div>
+        <button id="mobileMenuBtn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
       </div>
-      <button id="mobile-menu-btn" class="md:hidden text-2xl text-gray-700 dark:text-gray-200"><i class="fas fa-bars"></i></button>
-    </div>
-    <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg px-6 pb-5 shadow-lg">
-      <div class="flex flex-col gap-4 mt-2">
-        <a href="#home" class="font-medium">Home</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#stats">Impact</a><a href="#certifications">Credentials</a><a href="#contact">Contact</a>
-        <button id="theme-toggle-mobile" class="text-left flex items-center gap-2"><i class="fas fa-moon"></i> Dark mode</button>
+      <div id="mobileMenu" class="md:hidden hidden pb-4 space-y-3 text-gray-700 dark:text-gray-200">
+        <a href="#home" class="block">Home</a><a href="#skills" class="block">Skills</a><a href="#projects" class="block">Projects</a>
+        <a href="#stats" class="block">Stats</a><a href="#certifications" class="block">Certifications</a><a href="#contact" class="block">Contact</a>
+        <button id="mobileDarkToggle" class="block w-full text-left"><i class="fas fa-moon mr-2"></i>Dark mode</button>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="gradient-bg text-white pt-32 pb-24 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20"><div class="absolute -top-32 -right-32 w-96 h-96 bg-white rounded-full blur-3xl"></div><div class="absolute -bottom-32 -left-32 w-96 h-96 bg-white rounded-full blur-3xl"></div></div>
-    <div class="max-w-6xl mx-auto px-6 relative z-10 text-center" data-aos="fade-up">
+  <!-- Hero Section (original images preserved) -->
+  <section id="home" class="gradient-bg text-white py-20 md:py-28 relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-5 text-center relative z-10" data-aos="fade-up">
       <div class="flex justify-center mb-8">
-        <div class="w-40 h-40 md:w-48 md:h-48 rounded-full ring-4 ring-white/30 shadow-2xl overflow-hidden floating">
-          <img src="photo_page-0001.jpg" alt="Abinet Endale" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-white/20 text-5xl font-bold\'>AE</div>'">
+        <div class="w-44 h-44 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+          <img src="photo_page-0001.jpg" alt="Abinet Endale" class="w-full h-full object-cover" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-white/20 text-4xl font-bold\'>AE</div>';">
         </div>
       </div>
-      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4">Abinet Endale</h1>
-      <p class="text-xl md:text-2xl font-medium opacity-95 mb-4">Android & Full Stack Developer</p>
-      <p class="text-lg md:text-xl max-w-2xl mx-auto opacity-90 mb-10">IT Student @ Madda Walabu University | Building innovative digital solutions from Ethiopia</p>
+      <h1 class="text-5xl md:text-7xl font-bold mb-4">Abinet Endale</h1>
+      <p class="text-xl md:text-2xl mb-3 font-medium">Android & Full Stack Developer</p>
+      <p class="text-lg max-w-2xl mx-auto opacity-90 mb-8">IT Student at Madda Walabu University | Building innovative digital solutions from Ethiopia</p>
       <div class="flex flex-wrap justify-center gap-5">
-        <a href="#projects" class="bg-white text-primary px-8 py-3 rounded-full font-semibold shadow-lg btn-primary flex items-center gap-2"><i class="fas fa-code"></i> Explore Work</a>
-        <a href="#contact" class="border-2 border-white/80 text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition flex items-center gap-2"><i class="fas fa-paper-plane"></i> Hire Me</a>
-        <a href="#certifications" class="border-2 border-white/80 text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition flex items-center gap-2"><i class="fas fa-certificate"></i> Certifications</a>
+        <a href="#projects" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold shadow-md hover:bg-gray-100 transition flex items-center gap-2"><i class="fas fa-code"></i> View Projects</a>
+        <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition flex items-center gap-2"><i class="fas fa-envelope"></i> Contact Me</a>
+        <a href="#certifications" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition flex items-center gap-2"><i class="fas fa-certificate"></i> Certifications</a>
       </div>
       <div class="flex justify-center gap-6 mt-12">
-        <a href="https://github.com/abihacker456" target="_blank" class="text-white/80 hover:text-white text-2xl transition"><i class="fab fa-github"></i></a>
-        <a href="https://t.me/fintechcompany1" target="_blank" class="text-white/80 hover:text-white text-2xl transition"><i class="fab fa-telegram"></i></a>
-        <a href="https://www.linkedin.com/in/abinet-endale-0a47353a8" target="_blank" class="text-white/80 hover:text-white text-2xl transition"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:endaleabinet67@gmail.com" class="text-white/80 hover:text-white text-2xl transition"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/abihacker456" target="_blank" class="text-white text-2xl hover:opacity-80 transition"><i class="fab fa-github"></i></a>
+        <a href="https://t.me/fintechcompany1" target="_blank" class="text-white text-2xl hover:opacity-80 transition"><i class="fab fa-telegram"></i></a>
+        <a href="https://www.linkedin.com/in/abinet-endale-0a47353a8" target="_blank" class="text-white text-2xl hover:opacity-80 transition"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:endaleabinet67@gmail.com" class="text-white text-2xl hover:opacity-80 transition"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="py-24 bg-white dark:bg-gray-800">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16" data-aos="fade-up"><h2 class="text-4xl font-bold text-gray-900 dark:text-white">Technical Expertise</h2><p class="text-gray-600 dark:text-gray-400 mt-2">Core technologies & proficiency</p></div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl card-hover border border-gray-100 dark:border-gray-700 text-center" data-aos="fade-up"><div class="w-16 h-16 mx-auto bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-5"><i class="fab fa-android text-3xl text-blue-600"></i></div><h3 class="text-xl font-bold mb-2">Android Dev</h3><p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Kotlin, Jetpack Compose, Room, MVVM</p><div class="bg-gray-200 dark:bg-gray-700 rounded-full h-2"><div class="skill-progress bg-blue-600 h-2 rounded-full" style="width:90%"></div></div></div>
-        <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl card-hover border border-gray-100 dark:border-gray-700 text-center" data-aos="fade-up" data-aos-delay="100"><div class="w-16 h-16 mx-auto bg-indigo-100 dark:bg-indigo-900/30 rounded-2xl flex items-center justify-center mb-5"><i class="fas fa-code text-3xl text-indigo-600"></i></div><h3 class="text-xl font-bold mb-2">Frontend</h3><p class="text-gray-600 dark:text-gray-400 text-sm mb-4">React, Tailwind, JavaScript, HTML/CSS</p><div class="bg-gray-200 dark:bg-gray-700 rounded-full h-2"><div class="skill-progress bg-indigo-600 h-2 rounded-full" style="width:85%"></div></div></div>
-        <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl card-hover border border-gray-100 dark:border-gray-700 text-center" data-aos="fade-up" data-aos-delay="200"><div class="w-16 h-16 mx-auto bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center mb-5"><i class="fas fa-server text-3xl text-purple-600"></i></div><h3 class="text-xl font-bold mb-2">Backend</h3><p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Node.js, Python Flask, REST APIs, MongoDB</p><div class="bg-gray-200 dark:bg-gray-700 rounded-full h-2"><div class="skill-progress bg-purple-600 h-2 rounded-full" style="width:80%"></div></div></div>
-        <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl card-hover border border-gray-100 dark:border-gray-700 text-center" data-aos="fade-up" data-aos-delay="300"><div class="w-16 h-16 mx-auto bg-rose-100 dark:bg-rose-900/30 rounded-2xl flex items-center justify-center mb-5"><i class="fas fa-shield-alt text-3xl text-rose-600"></i></div><h3 class="text-xl font-bold mb-2">Cybersecurity</h3><p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Kali Linux, Ethical hacking, analysis</p><div class="bg-gray-200 dark:bg-gray-700 rounded-full h-2"><div class="skill-progress bg-rose-600 h-2 rounded-full" style="width:75%"></div></div></div>
+  <!-- Skills Section (clean cards) -->
+  <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="text-center mb-14" data-aos="fade-up"><h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Technical Skills</h2><p class="text-gray-600 dark:text-gray-400 mt-2">Technologies I work with daily</p></div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-md border border-gray-100 dark:border-gray-700 text-center" data-aos="fade-up"><div class="w-16 h-16 mx-auto bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-4"><i class="fab fa-android text-3xl text-blue-600"></i></div><h3 class="text-xl font-bold mb-2">Android Dev</h3><p class="text-gray-600 dark:text-gray-400 text-sm">Kotlin, Jetpack Compose, Room, MVVM</p><div class="mt-4 bg-gray-200 dark:bg-gray-700 rounded-full h-2"><div class="bg-blue-600 h-2 rounded-full" style="width:90%"></div></div></div>
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-md border border-gray-100 dark:border-gray-700 text-center" data-aos="fade-up" data-aos-delay="50"><div class="w-16 h-16 mx-auto bg-indigo-100 dark:bg-indigo-900/30 rounded-2xl flex items-center justify-center mb-4"><i class="fas fa-code text-3xl text-indigo-600"></i></div><h3 class="text-xl font-bold mb-2">Frontend</h3><p class="text-gray-600 dark:text-gray-400 text-sm">React, Tailwind, JavaScript, HTML/CSS</p><div class="mt-4 bg-gray-200 dark:bg-gray-700 rounded-full h-2"><div class="bg-indigo-600 h-2 rounded-full" style="width:85%"></div></div></div>
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-md border border-gray-100 dark:border-gray-700 text-center" data-aos="fade-up" data-aos-delay="100"><div class="w-16 h-16 mx-auto bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center mb-4"><i class="fas fa-server text-3xl text-purple-600"></i></div><h3 class="text-xl font-bold mb-2">Backend</h3><p class="text-gray-600 dark:text-gray-400 text-sm">Node.js, Python Flask, REST APIs, SQLite</p><div class="mt-4 bg-gray-200 dark:bg-gray-700 rounded-full h-2"><div class="bg-purple-600 h-2 rounded-full" style="width:80%"></div></div></div>
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-md border border-gray-100 dark:border-gray-700 text-center" data-aos="fade-up" data-aos-delay="150"><div class="w-16 h-16 mx-auto bg-rose-100 dark:bg-rose-900/30 rounded-2xl flex items-center justify-center mb-4"><i class="fas fa-shield-alt text-3xl text-rose-600"></i></div><h3 class="text-xl font-bold mb-2">Cybersecurity</h3><p class="text-gray-600 dark:text-gray-400 text-sm">Kali Linux, ethical hacking, analysis</p><div class="mt-4 bg-gray-200 dark:bg-gray-700 rounded-full h-2"><div class="bg-rose-600 h-2 rounded-full" style="width:75%"></div></div></div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section (Refined, professional) -->
-  <section id="projects" class="py-24 bg-gray-50 dark:bg-gray-900">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16" data-aos="fade-up"><h2 class="text-4xl font-bold text-gray-900 dark:text-white">Flagship Projects</h2><p class="text-gray-600 dark:text-gray-400">Real-world applications with measurable impact</p></div>
-      
+  <!-- Projects Section (all original images & content preserved) -->
+  <section id="projects" class="py-20 bg-white dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="text-center mb-14" data-aos="fade-up"><h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Featured Projects</h2><p class="text-gray-600 dark:text-gray-400 mt-2">Professional applications with real-world impact</p></div>
+
       <!-- CodeLearn Pro -->
-      <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-200 dark:border-gray-700 mb-12 overflow-hidden" data-aos="fade-up">
-        <div class="p-8 md:p-10">
-          <div class="flex flex-wrap gap-6 items-start justify-between"><div><div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center"><i class="fas fa-graduation-cap text-2xl text-blue-600"></i></div><h3 class="text-2xl md:text-3xl font-bold">CodeLearn Pro</h3></div><p class="text-gray-600 dark:text-gray-300 max-w-2xl mb-5">125+ lessons across 5 languages with real-time code execution (JDoodle API), bookmarking, progress tracking, MVVM architecture.</p><div class="flex flex-wrap gap-2 mb-6"><span class="tech-tag px-4 py-1.5">Kotlin</span><span class="tech-tag px-4 py-1.5">Jetpack Compose</span><span class="tech-tag px-4 py-1.5">Room DB</span><span class="tech-tag px-4 py-1.5">JDoodle API</span></div><div class="flex flex-wrap gap-4"><a href="https://drive.google.com/uc?export=download&id=1blV8ooxzDjy_jB5Fm2TgTmsWC-6nXWAA" target="_blank" class="gradient-bg text-white px-6 py-2.5 rounded-xl font-semibold btn-primary inline-flex items-center gap-2"><i class="fas fa-download"></i> Download APK</a><button onclick="openModalById('codeLearnModal')" class="border border-gray-300 dark:border-gray-600 px-6 py-2.5 rounded-xl font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition">Details</button></div></div><div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 p-5 rounded-2xl"><div class="font-bold text-lg mb-2">Impact</div><ul class="space-y-2 text-sm"><li><i class="fas fa-check-circle text-green-500 w-5"></i> 125 interactive lessons</li><li><i class="fas fa-check-circle text-green-500 w-5"></i> Real compiler execution</li><li><i class="fas fa-check-circle text-green-500 w-5"></i> 5 programming languages</li></ul></div></div>
+      <div class="bg-gray-50 dark:bg-gray-800 rounded-3xl p-6 md:p-8 mb-12 shadow-md border border-gray-200 dark:border-gray-700" data-aos="fade-up">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <div class="flex-1"><div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center"><i class="fas fa-graduation-cap text-2xl text-blue-600"></i></div><h3 class="text-2xl md:text-3xl font-bold">CodeLearn Pro - Android App</h3></div><p class="text-gray-700 dark:text-gray-300 mb-5">A comprehensive programming learning app with 125 lessons across 5 languages (Python, C++, Kotlin, Java, JavaScript). Features real code execution via JDoodle API, bookmark system, progress tracking, and interactive exercises.</p><div class="flex flex-wrap gap-2 mb-6"><span class="tech-badge">Kotlin</span><span class="tech-badge">Jetpack Compose</span><span class="tech-badge">Room DB</span><span class="tech-badge">JDoodle API</span><span class="tech-badge">MVVM</span></div><div class="flex flex-wrap gap-4"><a href="https://drive.google.com/uc?export=download&id=1blV8ooxzDjy_jB5Fm2TgTmsWC-6nXWAA" target="_blank" class="gradient-bg text-white px-6 py-2.5 rounded-xl font-semibold shadow-md hover:shadow-lg transition"><i class="fas fa-download mr-2"></i>Download APK</a><button onclick="openProjectModal('codeLearnModal')" class="border border-gray-300 dark:border-gray-600 px-6 py-2.5 rounded-xl font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition">View Details</button></div></div>
+          <div class="lg:w-72 bg-white dark:bg-gray-900 p-5 rounded-2xl shadow-inner"><h4 class="font-bold text-lg mb-3">Key Achievements</h4><ul class="space-y-2 text-sm"><li><i class="fas fa-check-circle text-green-500 w-5"></i> 125 lessons</li><li><i class="fas fa-check-circle text-green-500 w-5"></i> Real code execution</li><li><i class="fas fa-check-circle text-green-500 w-5"></i> Dark/light theme</li><li><i class="fas fa-check-circle text-green-500 w-5"></i> 5 programming languages</li></ul></div>
         </div>
+        <!-- Gallery images (original paths) -->
+        <div class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700"><h4 class="text-xl font-bold mb-6 text-center">App Screenshots</h4><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"><div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow"><img src="photo_2_2026-01-21_08-19-50.jpg" alt="Lesson Interface" class="gallery-img" onerror="this.src='https://placehold.co/400x300/3B82F6/white?text=Lesson+UI'"><div class="p-3"><p class="font-semibold">Interactive Lesson Interface</p><p class="text-sm text-gray-500">Clean UI with code examples</p></div></div><div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow"><img src="photo_5_2026-01-21_08-19-50.jpg" alt="Code Execution" class="gallery-img" onerror="this.src='https://placehold.co/400x300/10B981/white?text=Code+Execution'"><div class="p-3"><p class="font-semibold">Real-time Code Execution</p><p class="text-sm text-gray-500">Write and run code</p></div></div><div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow"><img src="photo_6_2026-01-21_08-19-50.jpg" alt="Progress Tracking" class="gallery-img" onerror="this.src='https://placehold.co/400x300/8B5CF6/white?text=Progress'"><div class="p-3"><p class="font-semibold">Progress Dashboard</p><p class="text-sm text-gray-500">Track learning journey</p></div></div></div></div>
       </div>
 
       <!-- Video Projector 2 -->
-      <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-200 dark:border-gray-700 mb-12 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-        <div class="p-8 md:p-10">
-          <div class="flex flex-wrap gap-6"><div><div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center"><i class="fas fa-video text-2xl text-red-600"></i></div><h3 class="text-2xl md:text-3xl font-bold">Video Projector 2</h3></div><p class="text-gray-600 dark:text-gray-300 max-w-2xl mb-5">Transform any surface into a display — real-time projection, gesture controls, file browser, CameraX integration.</p><div class="flex flex-wrap gap-2 mb-6"><span class="tech-tag px-4 py-1.5">Kotlin</span><span class="tech-tag px-4 py-1.5">MediaProjection</span><span class="tech-tag px-4 py-1.5">OpenGL ES</span><span class="tech-tag px-4 py-1.5">CameraX</span></div><div class="flex gap-4"><a href="https://drive.google.com/uc?export=download&id=1BUh69rbeXmwVIfDKS4P-Mkt3T60xaKtE" target="_blank" class="gradient-bg text-white px-6 py-2.5 rounded-xl font-semibold btn-primary inline-flex gap-2"><i class="fas fa-download"></i> APK</a><button onclick="openModalById('videoProjectorModal')" class="border border-gray-300 dark:border-gray-600 px-6 py-2.5 rounded-xl font-medium hover:bg-gray-50 transition">More</button></div></div><div class="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 p-5 rounded-2xl"><div class="font-bold text-lg mb-2">Highlights</div><ul class="space-y-2 text-sm"><li><i class="fas fa-check-circle text-green-500"></i> Gesture projection</li><li><i class="fas fa-check-circle text-green-500"></i> Real-time surface mapping</li><li><i class="fas fa-check-circle text-green-500"></i> File browsing & camera</li></ul></div></div>
-        </div>
+      <div class="bg-gray-50 dark:bg-gray-800 rounded-3xl p-6 md:p-8 mb-12 shadow-md border border-gray-200 dark:border-gray-700" data-aos="fade-up" data-aos-delay="50">
+        <div class="flex flex-col lg:flex-row gap-8"><div class="flex-1"><div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center"><i class="fas fa-video text-2xl text-red-600"></i></div><h3 class="text-2xl md:text-3xl font-bold">Video Projector 2 - Android App</h3></div><p class="text-gray-700 dark:text-gray-300 mb-5">A native Android app that transforms any surface into a display. Features video/image projection with gesture controls, file browsing, and camera integration. Resolved complex Java/Gradle compatibility issues.</p><div class="flex flex-wrap gap-2 mb-6"><span class="tech-badge">Kotlin</span><span class="tech-badge">MediaProjection</span><span class="tech-badge">CameraX</span><span class="tech-badge">OpenGL ES</span></div><div class="flex flex-wrap gap-4"><a href="https://drive.google.com/uc?export=download&id=1BUh69rbeXmwVIfDKS4P-Mkt3T60xaKtE" target="_blank" class="gradient-bg text-white px-6 py-2.5 rounded-xl font-semibold shadow-md"><i class="fas fa-download mr-2"></i>Download APK</a><button onclick="openProjectModal('videoProjectorModal')" class="border border-gray-300 px-6 py-2.5 rounded-xl font-medium hover:bg-gray-100 transition">Details</button></div></div><div class="lg:w-72 bg-white dark:bg-gray-900 p-5 rounded-2xl"><h4 class="font-bold text-lg mb-3">Technical Achievements</h4><ul class="space-y-2 text-sm"><li><i class="fas fa-check-circle text-green-500"></i> Real-time projection</li><li><i class="fas fa-check-circle text-green-500"></i> Gesture controls</li><li><i class="fas fa-check-circle text-green-500"></i> Camera integration</li></ul></div></div>
+        <div class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700"><h4 class="text-xl font-bold mb-6 text-center">Projection Interface</h4><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"><div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow"><img src="photo_13_2026-01-21_08-19-50.jpg" class="gallery-img" alt="Main Interface" onerror="this.src='https://placehold.co/400x300/EF4444/white?text=Projection'"><div class="p-3"><p class="font-semibold">Projection Control Center</p></div></div><div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow"><img src="photo_14_2026-01-21_08-19-50.jpg" class="gallery-img" alt="Media Selection" onerror="this.src='https://placehold.co/400x300/3B82F6/white?text=Media+Library'"><div class="p-3"><p class="font-semibold">Media Library Browser</p></div></div><div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow"><img src="photo_15_2026-01-21_08-19-50.jpg" class="gallery-img" alt="Settings" onerror="this.src='https://placehold.co/400x300/10B981/white?text=Settings'"><div class="p-3"><p class="font-semibold">Advanced Settings Panel</p></div></div></div></div>
       </div>
 
       <!-- Megenagna VoIP -->
-      <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-200 dark:border-gray-700 mb-12 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-        <div class="p-8 md:p-10">
-          <div class="flex flex-wrap gap-6"><div><div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center"><i class="fas fa-phone-alt text-2xl text-emerald-600"></i></div><h3 class="text-2xl md:text-3xl font-bold">Megenagna – VoIP Messenger</h3></div><p class="text-gray-600 dark:text-gray-300 max-w-2xl mb-5">Full-stack communication app: real-time messaging, voice/video calls (Jitsi), group chats, FCM push, Node.js + MongoDB backend.</p><div class="flex flex-wrap gap-2 mb-6"><span class="tech-tag">Kotlin</span><span class="tech-tag">Node.js</span><span class="tech-tag">Socket.IO</span><span class="tech-tag">MongoDB</span><span class="tech-tag">Jitsi</span></div><div class="flex gap-4"><a href="https://github.com/abihacker456/megenagna" target="_blank" class="gradient-bg text-white px-6 py-2.5 rounded-xl font-semibold btn-primary inline-flex gap-2"><i class="fab fa-github"></i> Source</a><button onclick="openModalById('megenagnaModal')" class="border border-gray-300 px-6 py-2.5 rounded-xl font-medium hover:bg-gray-50 transition">Details</button></div></div><div class="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 p-5 rounded-2xl"><div class="font-bold text-lg mb-2">Features</div><ul class="space-y-2 text-sm"><li><i class="fas fa-check-circle text-green-500"></i> Real-time media sharing</li><li><i class="fas fa-check-circle text-green-500"></i> Voice/video calls</li><li><i class="fas fa-check-circle text-green-500"></i> Push notifications</li></ul></div></div>
-        </div>
+      <div class="bg-gray-50 dark:bg-gray-800 rounded-3xl p-6 md:p-8 mb-12 shadow-md border border-gray-200 dark:border-gray-700" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex flex-col lg:flex-row gap-8"><div class="flex-1"><div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center"><i class="fas fa-phone-alt text-2xl text-emerald-600"></i></div><h3 class="text-2xl md:text-3xl font-bold">Megenagna – VoIP Messaging App</h3></div><p class="text-gray-700 dark:text-gray-300 mb-5">Full‑stack messaging and calling app. Real‑time text, image, video, voice/video calls via Jitsi, push notifications (FCM), group chats, user profiles. Backend: Node.js, MongoDB, Socket.IO.</p><div class="flex flex-wrap gap-2 mb-6"><span class="tech-badge">Kotlin</span><span class="tech-badge">Node.js</span><span class="tech-badge">MongoDB</span><span class="tech-badge">Socket.IO</span><span class="tech-badge">Jitsi</span></div><div class="flex flex-wrap gap-4"><a href="https://github.com/abihacker456/megenagna" target="_blank" class="gradient-bg text-white px-6 py-2.5 rounded-xl font-semibold"><i class="fab fa-github mr-2"></i>Source Code</a><button onclick="openProjectModal('megenagnaModal')" class="border border-gray-300 px-6 py-2.5 rounded-xl font-medium hover:bg-gray-100 transition">Learn More</button></div></div><div class="lg:w-72 bg-white dark:bg-gray-900 p-5 rounded-2xl"><h4 class="font-bold text-lg mb-3">Key Features</h4><ul class="space-y-2 text-sm"><li><i class="fas fa-check-circle text-green-500"></i> Real‑time messaging</li><li><i class="fas fa-check-circle text-green-500"></i> Voice & video calls</li><li><i class="fas fa-check-circle text-green-500"></i> Group chats</li><li><i class="fas fa-check-circle text-green-500"></i> Push notifications</li></ul></div></div>
+        <div class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700"><h4 class="text-xl font-bold mb-6 text-center">App Preview</h4><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"><div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow"><img src="messaging.jpg" class="gallery-img" alt="Chat" onerror="this.src='https://placehold.co/400x300/3B82F6/white?text=Messaging'"><div class="p-3"><p class="font-semibold">Real‑time Chat</p></div></div><div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow"><img src="video%20calling.jpg" class="gallery-img" alt="Calls" onerror="this.src='https://placehold.co/400x300/8B5CF6/white?text=Video+Calls'"><div class="p-3"><p class="font-semibold">Voice & Video Calls</p></div></div><div class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow"><img src="contacts.jpg" class="gallery-img" alt="Contacts" onerror="this.src='https://placehold.co/400x300/10B981/white?text=Contacts'"><div class="p-3"><p class="font-semibold">Contact Management</p></div></div></div></div>
       </div>
 
-      <!-- Additional projects: IqubLedger + Security -->
+      <!-- Other projects row -->
       <div class="grid md:grid-cols-2 gap-8 mt-6">
-        <div class="bg-white dark:bg-gray-800 rounded-2xl p-7 card-hover shadow-lg border border-gray-200" data-aos="fade-up"><div class="flex items-center gap-3 mb-4"><i class="fas fa-coins text-3xl text-amber-500"></i><h3 class="text-xl font-bold">IqubLedger</h3></div><p class="text-gray-600 dark:text-gray-300 mb-4">Financial platform for Ethiopian Iqub communities (Flask, SQLite, Tailwind). User auth & transaction tracking.</p><div class="flex gap-4"><a href="https://github.com/abihacker456/fintech-app" target="_blank" class="text-primary font-semibold"><i class="fab fa-github"></i> GitHub</a><a href="https://fintech-app-1-2894.onrender.com/login" target="_blank" class="text-primary font-semibold">Live Demo →</a></div></div>
-        <div class="bg-white dark:bg-gray-800 rounded-2xl p-7 card-hover shadow-lg border border-gray-200" data-aos="fade-up" data-aos-delay="100"><div class="flex items-center gap-3 mb-4"><i class="fas fa-shield-virus text-3xl text-rose-500"></i><h3 class="text-xl font-bold">Android Security Research</h3></div><p class="text-gray-600 dark:text-gray-300 mb-4">Advanced malware analysis, C2 communication protocols, defensive techniques. Research for academic & industry insight.</p><button onclick="openModalById('securityAnalysisModal')" class="text-primary font-semibold">View methodology →</button></div>
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 shadow-md border border-gray-200"><div class="flex items-center gap-3 mb-3"><i class="fas fa-coins text-3xl text-amber-500"></i><h3 class="text-xl font-bold">IqubLedger</h3></div><p class="text-gray-700 dark:text-gray-300 mb-4">Full-stack financial platform for Ethiopian Iqub communities (Python Flask, SQLite, Tailwind). User authentication, transaction tracking.</p><div class="flex gap-4"><a href="https://github.com/abihacker456/fintech-app" target="_blank" class="text-blue-600 font-medium"><i class="fab fa-github mr-1"></i>Source</a><a href="https://fintech-app-1-2894.onrender.com/login" target="_blank" class="text-blue-600 font-medium">Live Demo →</a></div></div>
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 shadow-md border border-gray-200"><div class="flex items-center gap-3 mb-3"><i class="fas fa-shield-virus text-3xl text-rose-500"></i><h3 class="text-xl font-bold">Android Security Analysis</h3></div><p class="text-gray-700 dark:text-gray-300 mb-4">Comprehensive security research: malware analysis, C2 communication protocols, vulnerability assessment.</p><button onclick="openProjectModal('securityModal')" class="text-blue-600 font-medium">View methodology →</button></div>
       </div>
     </div>
   </section>
 
-  <!-- Stats Section (professional counters) -->
-  <section id="stats" class="py-20 gradient-bg text-white relative">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-12">Development Milestones</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
-        <div><div class="stat-number text-white text-5xl font-black" id="stat1">0</div><p class="text-lg font-medium mt-2">Programming Lessons</p></div>
-        <div><div class="stat-number text-white text-5xl font-black" id="stat2">0</div><p class="text-lg font-medium mt-2">Active Users+</p></div>
-        <div><div class="stat-number text-white text-5xl font-black" id="stat3">0</div><p class="text-lg font-medium mt-2">Lines of Code</p></div>
-        <div><div class="stat-number text-white text-5xl font-black" id="stat4">0</div><p class="text-lg font-medium mt-2">Certifications</p></div>
+  <!-- Stats Section (counter numbers) -->
+  <section id="stats" class="py-16 gradient-bg text-white">
+    <div class="max-w-6xl mx-auto px-5 text-center"><h2 class="text-3xl md:text-4xl font-bold mb-10">Development Impact</h2><div class="grid grid-cols-2 md:grid-cols-4 gap-8"><div><div class="stat-number" id="stat1">0</div><p class="text-lg mt-1">Programming Lessons</p></div><div><div class="stat-number" id="stat2">0</div><p class="text-lg mt-1">Active Users+</p></div><div><div class="stat-number" id="stat3">0</div><p class="text-lg mt-1">Lines of Code</p></div><div><div class="stat-number" id="stat4">0</div><p class="text-lg mt-1">Certifications</p></div></div></div>
+  </section>
+
+  <!-- Certifications (preserved all original links) -->
+  <section id="certifications" class="py-20 bg-white dark:bg-gray-900">
+    <div class="max-w-6xl mx-auto px-5"><h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Certifications & Education</h2><p class="text-center text-gray-600 dark:text-gray-400 mb-12">Verified credentials from leading platforms</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl border-l-4 border-blue-500"><i class="fas fa-graduation-cap text-2xl text-blue-600 mb-2"></i><h3 class="font-bold text-xl">🎓 Education</h3><p>Madda Walabu University, BSc IT (Year 2)</p></div>
+        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl border-l-4 border-green-500"><i class="fab fa-android text-2xl text-green-600 mb-2"></i><h3 class="font-bold text-xl">Android Development</h3><p>Udacity Nanodegree</p><a href="android.pdf" target="_blank" class="text-blue-600 text-sm">View Certificate →</a></div>
+        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl border-l-4 border-purple-500"><i class="fas fa-chart-line text-2xl text-purple-600 mb-2"></i><h3 class="font-bold text-xl">Data Analysis</h3><p>Udacity Nanodegree</p><a href="data-analysis.pdf" target="_blank" class="text-blue-600 text-sm">View Certificate →</a></div>
+        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl border-l-4 border-teal-500"><i class="fas fa-brain text-2xl text-teal-600 mb-2"></i><h3 class="font-bold text-xl">AI Fundamentals</h3><p>Udacity</p><a href="ai-fundamentals.pdf" target="_blank" class="text-blue-600 text-sm">View Certificate →</a></div>
+        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl border-l-4 border-rose-500"><i class="fas fa-user-secret text-2xl text-rose-600 mb-2"></i><h3 class="font-bold text-xl">Ethical Hacking</h3><p>Simplilearn SkillUp</p><a href="certificate-for-hacking.pdf" target="_blank" class="text-blue-600 text-sm">View Certificate →</a></div>
+        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-2xl border-l-4 border-slate-500"><i class="fab fa-linux text-2xl text-slate-600 mb-2"></i><h3 class="font-bold text-xl">Kali Linux Basics</h3><p>Simplilearn</p><a href="Kali Linux Certificate.pdf" target="_blank" class="text-blue-600 text-sm">View Certificate →</a></div>
       </div>
     </div>
   </section>
 
-  <!-- Certifications -->
-  <section id="certifications" class="py-24 bg-white dark:bg-gray-800">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-4">Credentials & Learning</h2>
-      <p class="text-center text-gray-600 dark:text-gray-400 mb-16">Verified certifications from industry recognized platforms</p>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
-        <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl border-l-4 border-blue-500"><i class="fas fa-graduation-cap text-2xl text-blue-600 mb-3"></i><h3 class="font-bold text-xl">🎓 BSc IT</h3><p>Madda Walabu University (Year 2)</p></div>
-        <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl border-l-4 border-green-500"><i class="fab fa-android text-2xl text-green-600 mb-3"></i><h3 class="font-bold text-xl">Android Development</h3><p>Udacity Nanodegree</p><a href="android.pdf" class="text-blue-600 text-sm">View →</a></div>
-        <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl border-l-4 border-purple-500"><i class="fas fa-chart-line text-2xl text-purple-600 mb-3"></i><h3 class="font-bold text-xl">Data Analysis</h3><p>Udacity Nanodegree</p><a href="data-analysis.pdf" class="text-blue-600 text-sm">View →</a></div>
-        <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl border-l-4 border-amber-500"><i class="fas fa-brain text-2xl text-amber-600 mb-3"></i><h3 class="font-bold text-xl">AI Fundamentals</h3><p>Udacity</p><a href="ai-fundamentals.pdf" class="text-blue-600 text-sm">View →</a></div>
-        <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl border-l-4 border-rose-500"><i class="fas fa-user-secret text-2xl text-rose-600 mb-3"></i><h3 class="font-bold text-xl">Ethical Hacking</h3><p>Simplilearn SkillUp</p><a href="certificate-for-hacking.pdf" class="text-blue-600 text-sm">View →</a></div>
-        <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl border-l-4 border-slate-500"><i class="fab fa-linux text-2xl text-slate-600 mb-3"></i><h3 class="font-bold text-xl">Kali Linux Basics</h3><p>Simplilearn</p><a href="Kali Linux Certificate.pdf" class="text-blue-600 text-sm">View →</a></div>
-      </div>
+  <!-- Contact Section (original image and details) -->
+  <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto px-5"><h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Let's Work Together</h2><p class="text-center text-gray-600 dark:text-gray-400 mb-12">Available for freelance projects, internships, and collaborations</p>
+      <div class="flex flex-col lg:flex-row gap-10"><div class="lg:w-2/5 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-md"><div class="flex flex-col items-center"><div class="w-36 h-36 rounded-full overflow-hidden mb-5 ring-4 ring-blue-100"><img src="photo_page-0001.jpg" alt="Abinet" class="w-full h-full object-cover"></div><h3 class="text-2xl font-bold">Abinet Endale</h3><p class="text-gray-500 mb-6">Android & Full Stack Developer</p><div class="space-y-4 w-full"><div class="flex items-center gap-4 p-3 bg-gray-50 dark:bg-gray-800 rounded-xl"><i class="fas fa-phone text-blue-600 w-6"></i><span>0948713566 / 0914156456</span></div><div class="flex items-center gap-4 p-3 bg-gray-50 dark:bg-gray-800 rounded-xl"><i class="fas fa-envelope text-blue-600 w-6"></i><span>endaleabinet67@gmail.com</span></div><div class="flex items-center gap-4 p-3 bg-gray-50 dark:bg-gray-800 rounded-xl"><i class="fas fa-map-marker-alt text-blue-600 w-6"></i><span>Bale Robe, Ethiopia</span></div></div><div class="flex gap-5 mt-8"><a href="https://github.com/abihacker456" class="text-2xl text-gray-600 hover:text-blue-600"><i class="fab fa-github"></i></a><a href="https://t.me/fintechcompany1" class="text-2xl text-gray-600 hover:text-blue-600"><i class="fab fa-telegram"></i></a><a href="https://www.linkedin.com/in/abinet-endale-0a47353a8" class="text-2xl text-gray-600 hover:text-blue-600"><i class="fab fa-linkedin"></i></a></div></div></div>
+        <div class="lg:w-3/5 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-md"><h3 class="text-2xl font-bold mb-6">Send me a message</h3><form id="contactForm" class="space-y-5"><div class="grid sm:grid-cols-2 gap-5"><input type="text" placeholder="Your Name" required class="w-full p-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800"><input type="email" placeholder="Your Email" required class="w-full p-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50"></div><input type="text" placeholder="Subject" required class="w-full p-3 border border-gray-200 rounded-xl bg-gray-50"><textarea rows="5" placeholder="Your Message" required class="w-full p-3 border border-gray-200 rounded-xl bg-gray-50"></textarea><button type="submit" class="w-full gradient-bg text-white py-3 rounded-xl font-semibold shadow-md hover:shadow-lg transition">Send Message <i class="fas fa-paper-plane ml-2"></i></button></form><div class="mt-8 text-center text-sm text-gray-500">I'll respond within 24 hours</div></div></div>
     </div>
   </section>
 
-  <!-- Contact Section refined -->
-  <section id="contact" class="py-24 bg-gray-50 dark:bg-gray-900">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-12"><h2 class="text-4xl font-bold">Let’s Collaborate</h2><p class="text-gray-600 dark:text-gray-400 mt-2">Open for freelance, research, or full-time opportunities</p></div>
-      <div class="grid md:grid-cols-2 gap-10">
-        <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl"><div class="flex flex-col items-center text-center"><div class="w-32 h-32 rounded-full overflow-hidden mb-5 ring-4 ring-primary/20"><img src="photo_page-0001.jpg" alt="Abinet" onerror="this.src='https://placehold.co/200x200?text=AE'"></div><h3 class="text-2xl font-bold">Abinet Endale</h3><p class="text-gray-500 mb-5">Android & Full Stack Developer</p><div class="space-y-3 w-full"><div class="flex items-center gap-4 p-3 bg-gray-50 dark:bg-gray-900 rounded-xl"><i class="fas fa-phone text-primary"></i><span>+251 948 713 566</span></div><div class="flex items-center gap-4 p-3 bg-gray-50 dark:bg-gray-900 rounded-xl"><i class="fas fa-envelope text-primary"></i><span>endaleabinet67@gmail.com</span></div><div class="flex items-center gap-4 p-3 bg-gray-50 dark:bg-gray-900 rounded-xl"><i class="fas fa-map-marker-alt text-primary"></i><span>Bale Robe, Ethiopia</span></div></div><div class="flex gap-5 mt-6"><a href="https://github.com/abihacker456" class="text-2xl hover:text-primary"><i class="fab fa-github"></i></a><a href="https://t.me/fintechcompany1" class="text-2xl hover:text-primary"><i class="fab fa-telegram"></i></a><a href="https://www.linkedin.com/in/abinet-endale-0a47353a8" class="text-2xl hover:text-primary"><i class="fab fa-linkedin"></i></a></div></div></div>
-        <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl"><h3 class="text-2xl font-bold mb-6">Send a Message</h3><form id="contactForm"><div class="grid sm:grid-cols-2 gap-5 mb-5"><input type="text" placeholder="Full name" required class="w-full p-3 border border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-900"><input type="email" placeholder="Email address" required class="w-full p-3 border border-gray-200 rounded-xl bg-gray-50 dark:bg-gray-900"></div><input type="text" placeholder="Subject" required class="w-full p-3 mb-5 border border-gray-200 rounded-xl bg-gray-50"><textarea rows="5" placeholder="Project details..." required class="w-full p-3 mb-5 border border-gray-200 rounded-xl bg-gray-50"></textarea><button type="submit" class="w-full gradient-bg text-white py-3 rounded-xl font-semibold btn-primary">Send Inquiry <i class="fas fa-arrow-right ml-2"></i></button><p class="text-xs text-center text-gray-400 mt-4">I'll respond within 24h</p></form></div>
-      </div>
-    </div>
-  </section>
+  <footer class="bg-gray-900 text-gray-400 py-10 text-center"><p>© 2025 Abinet Endale. All rights reserved. Made with <i class="fas fa-heart text-red-500"></i> from Ethiopia</p></footer>
 
-  <footer class="bg-gray-900 text-gray-400 py-12 text-center"><p>© 2025 Abinet Endale — Built with <i class="fas fa-heart text-red-500"></i> from Ethiopia</p></footer>
+  <!-- Modals (lightweight) -->
+  <div id="codeLearnModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50 p-4" onclick="if(event.target===this) closeModal('codeLearnModal')"><div class="bg-white dark:bg-gray-800 max-w-2xl w-full rounded-2xl p-6"><div class="flex justify-between"><h3 class="text-2xl font-bold">CodeLearn Pro Details</h3><button onclick="closeModal('codeLearnModal')"><i class="fas fa-times text-xl"></i></button></div><div class="mt-4"><p>125+ lessons, real code execution via JDoodle, bookmark system, progress tracking. Built with Kotlin, Jetpack Compose, Room DB, MVVM.</p><div class="mt-4 bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl"><strong>Tech stack:</strong> Kotlin, Jetpack Compose, Coroutines, Room, JDoodle API</div></div></div></div>
+  <div id="videoProjectorModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50 p-4" onclick="if(event.target===this) closeModal('videoProjectorModal')"><div class="bg-white dark:bg-gray-800 max-w-2xl w-full rounded-2xl p-6"><div class="flex justify-between"><h3 class="text-2xl font-bold">Video Projector 2</h3><button onclick="closeModal('videoProjectorModal')"><i class="fas fa-times"></i></button></div><p class="mt-4">Advanced projection app: screen casting, gesture controls, file manager, camera. Resolved Gradle & Java compatibility issues.</p><div class="mt-4 bg-red-50 dark:bg-red-900/20 p-4 rounded-xl"><strong>Highlights:</strong> OpenGL ES, MediaProjection, CameraX</div></div></div>
+  <div id="megenagnaModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50 p-4" onclick="if(event.target===this) closeModal('megenagnaModal')"><div class="bg-white dark:bg-gray-800 max-w-2xl w-full rounded-2xl p-6"><div class="flex justify-between"><h3 class="text-2xl font-bold">Megenagna VoIP</h3><button onclick="closeModal('megenagnaModal')"><i class="fas fa-times"></i></button></div><p class="mt-4">Real-time messaging, voice/video calls, group chats, FCM push, Node.js + MongoDB backend, JWT auth.</p><div class="mt-4 bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-xl"><strong>Open source:</strong> Self-owned communication platform</div></div></div>
+  <div id="securityModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50 p-4" onclick="if(event.target===this) closeModal('securityModal')"><div class="bg-white dark:bg-gray-800 max-w-2xl w-full rounded-2xl p-6"><div class="flex justify-between"><h3 class="text-2xl font-bold">Security Research</h3><button onclick="closeModal('securityModal')"><i class="fas fa-times"></i></button></div><p class="mt-4">In-depth Android malware analysis, C2 communication via encrypted channels, defensive strategies. Academic research.</p><div class="mt-4 bg-rose-50 dark:bg-rose-900/20 p-4 rounded-xl"><strong>Confidential methodology</strong> – available under NDA.</div></div></div>
 
-  <!-- Modals (simplified, professional) -->
-  <div id="codeLearnModal" class="modal hidden fixed inset-0 bg-black/70 z-50 items-center justify-center p-4"><div class="bg-white dark:bg-gray-800 max-w-2xl w-full rounded-2xl p-8 modal-enter"><div class="flex justify-between mb-4"><h3 class="text-2xl font-bold">CodeLearn Pro</h3><button onclick="closeModalById('codeLearnModal')"><i class="fas fa-times"></i></button></div><p>Comprehensive learning app with offline mode, real code execution, 125+ lessons, JDoodle API integration, bookmark system. MVVM architecture, Room DB for progress.</p><div class="mt-6 bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl"><strong>Tech:</strong> Kotlin, Jetpack Compose, Material 3, Coroutines</div></div></div>
-  <div id="videoProjectorModal" class="modal hidden fixed inset-0 bg-black/70 z-50 items-center justify-center p-4"><div class="bg-white dark:bg-gray-800 max-w-2xl w-full rounded-2xl p-8 modal-enter"><div class="flex justify-between mb-4"><h3 class="text-2xl font-bold">Video Projector 2</h3><button onclick="closeModalById('videoProjectorModal')"><i class="fas fa-times"></i></button></div><p>Native projection app: real-time screen casting, media projection, gesture recognition, advanced file picker. Solved Gradle & Java compatibility across Android versions.</p><div class="mt-6 bg-red-50 dark:bg-red-900/20 p-4 rounded-xl"><strong>Highlights:</strong> OpenGL ES, CameraX, performance optimization</div></div></div>
-  <div id="megenagnaModal" class="modal hidden fixed inset-0 bg-black/70 z-50 items-center justify-center p-4"><div class="bg-white dark:bg-gray-800 max-w-2xl w-full rounded-2xl p-8 modal-enter"><div class="flex justify-between mb-4"><h3 class="text-2xl font-bold">Megenagna VoIP</h3><button onclick="closeModalById('megenagnaModal')"><i class="fas fa-times"></i></button></div><p>Full-featured messenger with real-time chat, image/video sharing, voice/video calls via Jitsi, FCM push, online status, MongoDB, Socket.io, JWT auth.</p><div class="mt-6 bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-xl"><strong>Self-owned communication stack</strong> — 100% customizable.</div></div></div>
-  <div id="securityAnalysisModal" class="modal hidden fixed inset-0 bg-black/70 z-50 items-center justify-center p-4"><div class="bg-white dark:bg-gray-800 max-w-2xl w-full rounded-2xl p-8 modal-enter"><div class="flex justify-between mb-4"><h3 class="text-2xl font-bold">Security Research</h3><button onclick="closeModalById('securityAnalysisModal')"><i class="fas fa-times"></i></button></div><p>In-depth Android malware analysis, C2 communication via encrypted channels, defensive strategies. Research for academic and security community.</p><div class="mt-6 bg-rose-50 dark:bg-rose-900/20 p-4 rounded-xl"><strong>Confidential methodology available upon NDA.</strong></div></div></div>
-
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 700, once: true, offset: 20 });
-    // Theme & Mobile menu
-    const themeToggle = document.getElementById('theme-toggle'), themeToggleMobile = document.getElementById('theme-toggle-mobile'), body = document.body;
-    const toggleTheme = () => { body.classList.toggle('dark-mode'); localStorage.setItem('darkMode', body.classList.contains('dark-mode')); const icon = themeToggle?.querySelector('i'); if(icon) icon.className = body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon'; if(themeToggleMobile?.querySelector('i')) themeToggleMobile.querySelector('i').className = body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon'; };
-    if(localStorage.getItem('darkMode') === 'true') body.classList.add('dark-mode');
-    themeToggle?.addEventListener('click', toggleTheme); themeToggleMobile?.addEventListener('click', toggleTheme);
-    document.getElementById('mobile-menu-btn')?.addEventListener('click', () => document.getElementById('mobile-menu')?.classList.toggle('hidden'));
+    AOS.init({ duration: 600, once: true });
+    // Dark mode
+    const toggle = document.getElementById('darkModeToggle');
+    const mobileToggle = document.getElementById('mobileDarkToggle');
+    const html = document.documentElement;
+    function enableDark() { document.body.classList.add('dark'); localStorage.setItem('theme', 'dark'); }
+    function disableDark() { document.body.classList.remove('dark'); localStorage.setItem('theme', 'light'); }
+    if (localStorage.getItem('theme') === 'dark') enableDark();
+    toggle?.addEventListener('click', () => document.body.classList.contains('dark') ? disableDark() : enableDark());
+    mobileToggle?.addEventListener('click', () => document.body.classList.contains('dark') ? disableDark() : enableDark());
+    // Mobile menu
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     // Counters
     const counters = { stat1: 125, stat2: 1000, stat3: 25000, stat4: 7 };
-    const startCounting = () => { Object.keys(counters).forEach(id => { let val = 0, target = counters[id]; let el = document.getElementById(id); if(!el) return; let step = Math.ceil(target / 70); let interval = setInterval(() => { val += step; if(val >= target) { el.innerText = target + (id === 'stat2' ? '+' : (id === 'stat4' ? '' : '')); clearInterval(interval); } else el.innerText = val; }, 20); }); };
-    const statsSection = document.getElementById('stats'); let counted = false;
-    const observer = new IntersectionObserver((entries) => { if(entries[0].isIntersecting && !counted) { startCounting(); counted = true; } }, { threshold: 0.4 });
+    const startCounters = () => { Object.entries(counters).forEach(([id, target]) => { let el = document.getElementById(id); if(!el) return; let val = 0, step = Math.ceil(target/70), interval = setInterval(() => { val += step; if(val >= target) { el.innerText = target + (id==='stat2' ? '+' : ''); clearInterval(interval); } else el.innerText = val; }, 20); }); };
+    const statsSection = document.getElementById('stats');
+    let counted = false;
+    const observer = new IntersectionObserver((entries) => { if(entries[0].isIntersecting && !counted) { startCounters(); counted = true; } }, { threshold: 0.4 });
     if(statsSection) observer.observe(statsSection);
     // Modal helpers
-    window.openModalById = (id) => document.getElementById(id).classList.remove('hidden');
-    window.closeModalById = (id) => document.getElementById(id).classList.add('hidden');
-    document.querySelectorAll('.modal').forEach(modal => modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.add('hidden'); }));
+    window.openProjectModal = (id) => document.getElementById(id).classList.remove('hidden');
+    window.closeModal = (id) => document.getElementById(id).classList.add('hidden');
     // Contact form
-    document.getElementById('contactForm')?.addEventListener('submit', (e) => { e.preventDefault(); alert("✅ Message received! I'll reply within 24 hours. Thank you."); e.target.reset(); });
-    // Skill progress on view
-    const skillBars = document.querySelectorAll('.skill-progress');
-    const skillObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if(entry.isIntersecting) { const bar = entry.target; const width = bar.style.width; bar.style.width = '0%'; setTimeout(() => bar.style.width = width, 100); } }); }, { threshold: 0.5 });
-    skillBars.forEach(bar => skillObserver.observe(bar));
+    document.getElementById('contactForm')?.addEventListener('submit', (e) => { e.preventDefault(); alert("✓ Message received! I'll reply within 24 hours. Thank you."); e.target.reset(); });
   </script>
 </body>
 </html>
