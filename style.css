@@ -1,0 +1,703 @@
+/* ============================================================
+   GLOBAL RESET
+   Removes default browser margins, padding, and sets box-sizing
+   ============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   BASE BODY (Dark Mode is the default / fallback)
+   ============================================================ */
+body {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  color: white;
+  line-height: 1.5;
+  background: #111;
+
+  /*
+    IMPORTANT: This padding-top offsets the fixed header.
+    The fixed header is approximately 80px tall.
+    Without this offset, section headings (especially after clicking nav links)
+    would be hidden behind the header. This solves the z-index overlap issue.
+  */
+  padding-top: 80px;
+}
+
+/* ============================================================
+   BRIGHT MODE OVERRIDES
+   Applied via JavaScript when the toggle button is clicked.
+   ============================================================ */
+body.bright-mode {
+  color: #222;
+  background: #f5f5f5;
+}
+
+/* Bright mode section backgrounds — lighter gradients */
+body.bright-mode #home {
+  background: linear-gradient(135deg, #e0f7fa, #b2ebf2, #80deea);
+}
+body.bright-mode #about {
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9, #a5d6a7);
+}
+body.bright-mode #stats {
+  background: linear-gradient(135deg, #f3e5f5, #e1bee7, #ce93d8);
+}
+body.bright-mode #portfolio {
+  background: linear-gradient(135deg, #ede7f6, #d1c4e9, #b39ddb);
+}
+body.bright-mode #resume {
+  background: linear-gradient(135deg, #e0f2f1, #b2dfdb, #80cbc4);
+}
+body.bright-mode #contact {
+  background: linear-gradient(135deg, #ffebee, #ffcdd2, #ef9a9a);
+}
+
+/* In bright mode, remove text shadows for clean readability */
+body.bright-mode,
+body.bright-mode h1,
+body.bright-mode h2,
+body.bright-mode h3,
+body.bright-mode p,
+body.bright-mode a,
+body.bright-mode li,
+body.bright-mode td,
+body.bright-mode th,
+body.bright-mode dt,
+body.bright-mode dd,
+body.bright-mode legend,
+body.bright-mode label {
+  text-shadow: none;
+}
+
+/* Bright mode link colors */
+body.bright-mode a {
+  color: #0d47a1;
+}
+body.bright-mode a:hover {
+  color: #1e88e5;
+}
+
+/* ============================================================
+   DARK MODE SECTION BACKGROUNDS (default)
+   ============================================================ */
+#home {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  padding: 60px 30px;
+}
+#about {
+  background: linear-gradient(135deg, #1d2b1f, #2c4a2e, #3a5c3a);
+}
+#stats {
+  background: linear-gradient(135deg, #2a1e2c, #3c2a40, #523b58);
+}
+#portfolio {
+  background: linear-gradient(135deg, #1f1c2c, #3a2e59, #4a3b6b);
+}
+#resume {
+  background: linear-gradient(135deg, #0d3b4c, #145a6b, #186a7a);
+}
+#contact {
+  background: linear-gradient(135deg, #2c1b1d, #4a2c30, #5c3838);
+}
+
+/* Consistent padding for all main sections */
+.section {
+  padding: 60px 40px;
+}
+
+/* ============================================================
+   TEXT SHADOWS (Dark mode readability)
+   ============================================================ */
+body,
+h1, h2, h3, p, a, li, td, th, dt, dd, legend, label {
+  text-shadow: 1px 1px 2px black;
+}
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+a {
+  color: yellow;
+  text-decoration: none;
+}
+a:hover {
+  color: orange;
+  text-decoration: underline;
+}
+
+/* ============================================================
+   CLEARFIX (for floated elements like screenshots and columns)
+   ============================================================ */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ============================================================
+   CONTAINER
+   ============================================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: transparent;
+}
+
+/* ============================================================
+   FIXED HEADER
+   Stays at the top of the viewport at all times.
+   The body's padding-top prevents it from covering content.
+   ============================================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 40px;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(5px);
+}
+body.bright-mode .header {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(5px);
+}
+
+.logo {
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+}
+body.bright-mode .logo {
+  color: #222;
+}
+
+/* Navigation links and toggle button are aligned in a row */
+.nav {
+  float: right;
+  padding-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav a {
+  color: white;
+  margin: 0 12px;
+  font-size: 18px;
+}
+body.bright-mode .nav a {
+  color: #222;
+}
+.nav a:hover {
+  color: yellow;
+  text-decoration: none;
+  border-bottom: 2px solid yellow;
+}
+body.bright-mode .nav a:hover {
+  color: #0d47a1;
+  border-color: #0d47a1;
+}
+
+/* ============================================================
+   THEME TOGGLE BUTTON
+   ============================================================ */
+.theme-toggle-btn {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  font-size: 20px;
+  padding: 4px 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 1;
+  margin-left: 15px;
+}
+body.bright-mode .theme-toggle-btn {
+  border-color: #222;
+  color: #222;
+}
+
+/* ============================================================
+   HERO (HOME SECTION)
+   ============================================================ */
+.hero {
+  text-align: center;
+}
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+.hero-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: yellow;
+  margin-bottom: 12px;
+}
+body.bright-mode .hero-title {
+  color: #0d47a1;
+}
+.hero-text {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto 25px;
+}
+
+/* Call-to-action buttons */
+.hero-buttons .btn {
+  display: inline-block;
+  background: royalblue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 40px;
+  margin: 5px 8px;
+  font-weight: 500;
+}
+.hero-buttons .btn:hover {
+  background: mediumblue;
+  text-decoration: none;
+}
+
+/* Social links row */
+.social-links {
+  margin-top: 25px;
+  font-size: 18px;
+}
+.social-links a {
+  margin: 0 10px;
+}
+
+/* ============================================================
+   VIDEO PLACEHOLDER
+   A styled box that simulates a video player.
+   Replace with an actual <video> or <iframe> when ready.
+   ============================================================ */
+.video-placeholder {
+  max-width: 500px;
+  margin: 40px auto 0;
+  background: rgba(0,0,0,0.3);
+  border: 2px dashed rgba(255,255,255,0.5);
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+}
+body.bright-mode .video-placeholder {
+  background: rgba(0,0,0,0.05);
+  border-color: #aaa;
+}
+.video-placeholder-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.video-placeholder-title {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+.video-placeholder-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+.video-placeholder-play {
+  font-size: 36px;
+  color: #ffcc00;
+}
+body.bright-mode .video-placeholder-play {
+  color: #1565c0;
+}
+
+/* ============================================================
+   SECTION HEADINGS
+   ============================================================ */
+.section h2 {
+  font-size: 36px;
+  margin-bottom: 8px;
+  border-left: 6px solid yellow;
+  padding-left: 20px;
+}
+body.bright-mode .section h2 {
+  border-left-color: #0d47a1;
+}
+.section-subtitle {
+  font-size: 18px;
+  color: inherit;
+  margin-bottom: 40px;
+}
+
+/* ============================================================
+   SKILLS LIST (About section)
+   ============================================================ */
+.skills-dl dt {
+  font-size: 24px;
+  font-weight: bold;
+  color: yellow;
+  padding: 8px 0;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+body.bright-mode .skills-dl dt {
+  color: #0d47a1;
+}
+.skills-dl dd {
+  font-size: 16px;
+  margin-left: 0;
+  margin-bottom: 20px;
+}
+
+/* ============================================================
+   STATS TABLE
+   ============================================================ */
+.stats-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+.stats-table caption {
+  font-size: 14px;
+  color: lightgray;
+  caption-side: bottom;
+  margin-bottom: 10px;
+}
+.stats-table td {
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 18px;
+}
+.stats-number {
+  font-size: 40px;
+  font-weight: 800;
+  color: yellow;
+  display: block;
+}
+body.bright-mode .stats-number {
+  color: #0d47a1;
+}
+
+/* ============================================================
+   PROJECT CARDS
+   ============================================================ */
+.project-card {
+  padding: 25px 30px;
+  margin-bottom: 40px;
+}
+.project-card h3 {
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+.project-card p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* Tech stack badge */
+.tech-stack {
+  font-size: 14px;
+  color: yellow;
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 30px;
+  background: rgba(0,0,0,0.3);
+}
+body.bright-mode .tech-stack {
+  color: #0d47a1;
+  background: rgba(0,0,0,0.1);
+}
+
+/* Download / source / demo links */
+.download-link, .source-link, .demo-link {
+  display: inline-block;
+  margin-top: 12px;
+  margin-right: 15px;
+  font-weight: 600;
+  color: yellow;
+}
+body.bright-mode .download-link,
+body.bright-mode .source-link,
+body.bright-mode .demo-link {
+  color: #0d47a1;
+}
+
+/* Screenshot gallery inside project cards */
+.screenshots {
+  margin-top: 20px;
+}
+.screenshots img {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  border-radius: 16px;
+  width: 280px;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* ============================================================
+   RESUME SECTION
+   ============================================================ */
+.resume-section {
+  margin-bottom: 30px;
+}
+.resume-section h3 {
+  color: yellow;
+  margin-bottom: 8px;
+  font-size: 24px;
+}
+body.bright-mode .resume-section h3 {
+  color: #0d47a1;
+}
+
+/* Description list for education and skills */
+.resume-dl dt {
+  font-size: 22px;
+  font-weight: bold;
+  color: yellow;
+  margin-top: 20px;
+}
+body.bright-mode .resume-dl dt {
+  color: #0d47a1;
+}
+.resume-dl dd {
+  margin-left: 20px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: inherit;
+}
+
+/* ============================================================
+   CERTIFICATIONS TABLE
+   Contains visible image thumbnails for each certificate.
+   ============================================================ */
+.cert-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.cert-table caption {
+  text-align: left;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.cert-table th,
+.cert-table td {
+  border: 1px solid white;
+  padding: 14px 18px;
+  text-align: left;
+}
+.cert-table th {
+  font-weight: 700;
+  color: yellow;
+}
+body.bright-mode .cert-table th {
+  color: #0d47a1;
+}
+body.bright-mode .cert-table th,
+body.bright-mode .cert-table td {
+  border-color: #555;
+  color: #222;
+}
+.cert-table a {
+  color: yellow;
+}
+body.bright-mode .cert-table a {
+  color: #0d47a1;
+}
+
+/* Certificate preview thumbnail images */
+.cert-img {
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid white;
+}
+body.bright-mode .cert-img {
+  border-color: #555;
+}
+
+/* ============================================================
+   CONTACT SECTION
+   ============================================================ */
+.contact-wrapper {
+  margin-top: 20px;
+}
+.contact-info,
+.contact-form {
+  float: left;
+  width: 48%;
+  margin-right: 2%;
+  padding: 30px;
+  border: 1px solid white;
+}
+.contact-form {
+  margin-right: 0;
+}
+.contact-info address {
+  font-style: normal;
+  line-height: 2;
+  font-size: 16px;
+}
+
+/* Form styles */
+fieldset {
+  border: none;
+  padding: 20px 0;
+}
+legend {
+  font-size: 20px;
+  font-weight: bold;
+  color: yellow;
+  padding: 0;
+}
+body.bright-mode legend {
+  color: #0d47a1;
+}
+.contact-form label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: 500;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 15px;
+  border: 2px solid white;
+  border-radius: 20px;
+  font-family: inherit;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+body.bright-mode .contact-form input,
+body.bright-mode .contact-form textarea {
+  border-color: #555;
+  background: rgba(0,0,0,0.05);
+  color: #222;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: yellow;
+  background: rgba(255,255,255,0.2);
+}
+body.bright-mode .contact-form input:focus,
+body.bright-mode .contact-form textarea:focus {
+  border-color: #0d47a1;
+  background: rgba(0,0,0,0.05);
+}
+
+/* Submit button */
+.send-btn {
+  background: royalblue;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 60px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.send-btn:hover {
+  background: mediumblue;
+}
+.form-note {
+  font-size: 13px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+/* Validation error messages (populated by script.js) */
+.error {
+  color: #ff6b6b;
+  font-size: 14px;
+  display: block;
+  margin-top: 4px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  color: white;
+  text-align: center;
+  padding: 25px;
+  font-size: 14px;
+  background: #222;
+  clear: both;
+}
+body.bright-mode .footer {
+  background: #e0e0e0;
+  color: #222;
+}
+.footer a {
+  color: yellow;
+}
+body.bright-mode .footer a {
+  color: #0d47a1;
+}
+.footer a:hover {
+  color: white;
+}
+body.bright-mode .footer a:hover {
+  color: #0d47a1;
+}
+
+/* ============================================================
+   RESPONSIVE STYLES (max-width: 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  .logo,
+  .nav {
+    float: none;
+    text-align: center;
+  }
+  .nav {
+    padding-top: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav a {
+    margin: 0 8px;
+    font-size: 16px;
+  }
+  .hero h1 {
+    font-size: 32px;
+  }
+  .section {
+    padding: 40px 20px;
+  }
+  .screenshots img {
+    float: none;
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    height: auto;
+  }
+  .contact-info,
+  .contact-form {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .stats-table td {
+    display: inline-block;
+    width: 45%;
+    margin: 5px;
+  }
+  .cert-table th,
+  .cert-table td {
+    padding: 10px 8px;
+  }
+  .cert-img {
+    width: 70px;
+  }
+}
